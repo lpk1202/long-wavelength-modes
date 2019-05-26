@@ -19,7 +19,7 @@ pk = np.loadtxt('data/pk.txt')
 
 matter_power_lin = interpolate.interp1d(k, pk)
 
-k_l = 7e-6 # In Mpc^{_1}
+k_l = 1e-5 # In Mpc^{_1}
 print(matter_power_lin(k_l))
 def F_2(ks,cos_theta,kl):
 	return (5+2*cos_theta*cos_theta)/7-0.5*cos_theta*(ks/kl+kl/ks)
@@ -35,7 +35,7 @@ def F_2_couterpart(ks,cos_theta,kl):
 
 def part1(lnks,cos_theta,kl):
 	ks = np.exp(lnks)
-	return (ks*ks*ks*F_2(ks,cos_theta,kl)*F_2(ks,cos_theta,kl)*matter_power_lin(norm_ks_prime(ks,cos_theta,kl))/(matter_power_lin(ks)))/(4.*np.pi*np.pi)
+	return (ks*ks*ks*F_2(ks,cos_theta,kl)*F_2(ks,cos_theta,kl)*matter_power_lin(ks)/(matter_power_lin(norm_ks_prime(ks,cos_theta,kl))))/(4.*np.pi*np.pi)
 
 def part2(lnks,cos_theta,kl):
 	ks = np.exp(lnks)
