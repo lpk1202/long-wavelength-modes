@@ -44,35 +44,7 @@ main(int argc, char* argv[])
   const std::complex<double> rr(1.0,0.0);  
   const std::complex<double> ii(0.0,1.0);  
 
-  int temp_read_int;
   double temp_read;
-  
-  std::ifstream file0("data/xi.txt");
-  std::vector<int> xi;
-
-  while(!file0.eof())
-  {
-  file0 >> temp_read_int;
-  xi.push_back(temp_read_int);
-  }
-
-  std::ifstream file1("data/xj.txt");
-  std::vector<int> xj;
-
-  while(!file1.eof())
-  {
-  file1 >> temp_read_int;
-  xj.push_back(temp_read_int);
-  }
-
-  std::ifstream file2("data/xk.txt");
-  std::vector<int> xk;
-
-  while(!file2.eof())
-  {
-  file2 >> temp_read_int;
-  xk.push_back(temp_read_int);
-  }
   
   std::ifstream file3("data/cfield_real.txt");
   std::vector<double> cfield_real;
@@ -82,6 +54,26 @@ main(int argc, char* argv[])
     cfield_real.push_back(temp_read);
   }
 
+  std::cout << "Finished Reading cr" << "\n";
+
+  cfield_real.pop_back();
+
+  std::vector<std::vector<std::vector<std::complex<double> > > > cfield(1280,std::vector<std::vector<std::complex<double> > >(1280,std::vector <std::complex<double> >(641,(0.,0.))));
+
+  int ll;
+  int mm;
+  int nn;
+  for(ll=0;ll<1280;ll++){
+    std::cout << "COMPLEXITY" << ll << "\n";
+    for(mm=0;mm<1280;mm++){
+        for(nn=0;nn<641;nn++){
+          cfield[ll][mm][nn] = rr*cfield_real[ll*1280*641+mm*641+nn];
+      }
+    }
+  }
+
+  cfield_real.clear();
+  cfield_real.shrink_to_fit();
 
   std::ifstream file4("data/cfield_imag.txt");
   std::vector<double> cfield_imag;
@@ -91,49 +83,23 @@ main(int argc, char* argv[])
     cfield_imag.push_back(temp_read);
   }
 
-  std::ifstream file5("data/k_h.txt");
-  std::vector<double> k_h;
+  std::cout << "Finished Reading ci" << "\n";
 
-  while(!file5.eof())
-  {
-  file5 >> temp_read;
-  k_h.push_back(temp_read);
-  }
-
-  std::ifstream file6("data/p_h.txt");
-  std::vector<double> p_h;
-
-  while(!file6.eof())
-  {
-  file6 >> temp_read;
-  p_h.push_back(temp_read);
-  }
-
-  xi.pop_back();
-  xj.pop_back();
-  xk.pop_back();
-  cfield_real.pop_back();
   cfield_imag.pop_back();
-  k_h.pop_back();
-  p_h.pop_back();
 
-  // std::complex<double> cfield[1280][1280][641];
-  // std::complex<double> cfield2[1280][1280][1280]={(0.,0.)};
-
-  std::vector<std::vector<std::vector<std::complex<double> > > > cfield(1280,std::vector<std::vector<std::complex<double> > >(1280,std::vector <std::complex<double> >(641,(0.,0.))));
-  std::vector<std::vector<std::vector<std::complex<double> > > > cfield2(1280,std::vector<std::vector<std::complex<double> > >(1280,std::vector <std::complex<double> >(1280,(0.,0.))));
-
-  int ll;
-  int mm;
-  int nn;
   for(ll=0;ll<1280;ll++){
     std::cout << "COMPLEXITY" << ll << "\n";
     for(mm=0;mm<1280;mm++){
         for(nn=0;nn<641;nn++){
-        cfield[ll][mm][nn] = rr*cfield_real[ll*1280*641+mm*641+nn]+ii*cfield_imag[ll*1280*641+mm*641+nn];
+          cfield[ll][mm][nn] = cfield[ll][mm][nn]+ii*cfield_imag[ll*1280*641+mm*641+nn];
       }
     }
   }
+
+  cfield_imag.clear();
+  cfield_imag.shrink_to_fit();
+
+  std::vector<std::vector<std::vector<std::complex<double> > > > cfield2(1280,std::vector<std::vector<std::complex<double> > >(1280,std::vector <std::complex<double> >(1280,(0.,0.))));
 
   for(ll=0;ll<1280;ll++){
     std::cout << "COPYING" << ll << "\n";
@@ -144,14 +110,81 @@ main(int argc, char* argv[])
     }
   }
 
+  cfield.clear();
+  cfield.shrink_to_fit();
+
   for(ll=1;ll<1280;ll++){
     std::cout << "READING " << ll << "\n";
     for(mm=1;mm<1280;mm++){
       for(nn=641;nn<1280;nn++){
-        cfield2[ll][mm][nn] = std::conj(cfield[1280-ll][1280-mm][1280-nn]);
+        cfield2[ll][mm][nn] = std::conj(cfield2[1280-ll][1280-mm][1280-nn]);
       }
     }
   }
+
+  std::ifstream file0("data/xi.txt");
+  std::vector<int> xi;
+
+  while(!file0.eof())
+  {
+  file0 >> temp_read;
+  xi.push_back(temp_read);
+  }
+
+  std::cout << "Finished Reading xi" << "\n";
+
+  std::ifstream file1("data/xj.txt");
+  std::vector<int> xj;
+
+  while(!file1.eof())
+  {
+  file1 >> temp_read;
+  xj.push_back(temp_read);
+  }
+
+  std::cout << "Finished Reading xj" << "\n";
+
+  std::ifstream file2("data/xk.txt");
+  std::vector<int> xk;
+
+  while(!file2.eof())
+  {
+  file2 >> temp_read;
+  xk.push_back(temp_read);
+  }
+
+  std::cout << "Finished Reading xk" << "\n";
+
+  std::ifstream file5("data/k_h.txt");
+  std::vector<double> k_h;
+
+  while(!file5.eof())
+  {
+  file5 >> temp_read;
+  k_h.push_back(temp_read);
+  }
+
+  std::cout << "Finished Reading kh" << "\n";
+
+  std::ifstream file6("data/p_h.txt");
+  std::vector<double> p_h;
+
+  while(!file6.eof())
+  {
+  file6 >> temp_read;
+  p_h.push_back(temp_read);
+  }
+
+  std::cout << "Finished Reading ph" << "\n";
+
+  xi.pop_back();
+  xj.pop_back();
+  xk.pop_back();
+  k_h.pop_back();
+  p_h.pop_back();
+
+  // std::complex<double> cfield[1280][1280][641];
+  // std::complex<double> cfield2[1280][1280][1280]={(0.,0.)};
 
   std::cout << "Finished Reading" << "\n";
 
