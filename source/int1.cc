@@ -280,7 +280,7 @@ main(int argc, char* argv[])
 
   std::cout << "Finished Reading xk" << "\n";
 
-  std::ifstream file5("../Example/data/k_h.txt");
+  std::ifstream file5("../Example/data/k_h_lin.txt");
   std::vector<double> k_h;
 
   while(!file5.eof())
@@ -291,7 +291,7 @@ main(int argc, char* argv[])
 
   std::cout << "Finished Reading kh" << "\n";
 
-  std::ifstream file6("../Example/data/p_h.txt");
+  std::ifstream file6("../Example/data/p_h_lin.txt");
   std::vector<double> p_h;
 
   while(!file6.eof())
@@ -344,32 +344,32 @@ main(int argc, char* argv[])
 
   // for(N_ks_x=92;N_ks_x<=200;N_ks_x=N_ks_x+12){
   //     for(N_ks_y=92;N_ks_y<=200;N_ks_y=N_ks_y+12){
-  //     	for(N_ks_z=-92;N_ks_z>=-200;N_ks_z=N_ks_z-12){
-  //     		Int = 0.;
-  //     		sum_index = 0;
+  //      for(N_ks_z=-92;N_ks_z>=-200;N_ks_z=N_ks_z-12){
+  //        Int = 0.;
+  //        sum_index = 0;
 
   //         for(N_kl_x=-upper_int;N_kl_x<=upper_int;N_kl_x=N_kl_x+2){
-  //     		  for(N_kl_y=-upper_int;N_kl_y<=upper_int;N_kl_y=N_kl_y+2){
-  //     		    for(N_kl_z=-upper_int;N_kl_z<=upper_int;N_kl_z=N_kl_z+2){
-  //     		    	if(((N_kl_x*N_kl_x+N_kl_y*N_kl_y+N_kl_z*N_kl_z)<=upper_int*upper_int)&&((N_kl_x*N_kl_x+N_kl_y*N_kl_y+N_kl_z*N_kl_z)!=0)&&(((N_ks_x-N_kl_x)*(N_ks_x-N_kl_x)+(N_ks_y-N_kl_y)*(N_ks_y-N_kl_y)+(N_ks_z-N_kl_z)*(N_ks_z-N_kl_z))!=0)){
-  //     		    	  sum_index = sum_index+1;
-  //           	    M_kl = std::sqrt(N_kl_x*N_kl_x+N_kl_y*N_kl_y+N_kl_z*N_kl_z);
-  //           	    dot_ls = N_kl_x*N_ks_x+N_kl_y*N_ks_y+N_kl_z*N_ks_z;
-  //           	    M_ks_counterpart = std::sqrt((N_ks_x-N_kl_x)*(N_ks_x-N_kl_x)+(N_ks_y-N_kl_y)*(N_ks_y-N_kl_y)+(N_ks_z-N_kl_z)*(N_ks_z-N_kl_z));
-  //           	    comb = (dot_ls-M_kl*M_kl)/(M_ks_counterpart*M_kl);
-  //           	    F2 = 5./7.+0.5*comb*(M_kl/M_ks_counterpart+M_ks_counterpart/M_kl)+2.*comb*comb/7.;
-  //     			      Int = Int + F2*cfield_ini2[indexing(N_kl_x)][indexing(N_kl_y)][indexing(N_kl_z)]*cfield_ini2[indexing(-N_kl_x+N_ks_x)][indexing(-N_kl_y+N_ks_y)][indexing(-N_kl_z+N_ks_z)];
-  //     			    }
-  //           	}
+  //          for(N_kl_y=-upper_int;N_kl_y<=upper_int;N_kl_y=N_kl_y+2){
+  //            for(N_kl_z=-upper_int;N_kl_z<=upper_int;N_kl_z=N_kl_z+2){
+  //              if(((N_kl_x*N_kl_x+N_kl_y*N_kl_y+N_kl_z*N_kl_z)<=upper_int*upper_int)&&((N_kl_x*N_kl_x+N_kl_y*N_kl_y+N_kl_z*N_kl_z)!=0)&&(((N_ks_x-N_kl_x)*(N_ks_x-N_kl_x)+(N_ks_y-N_kl_y)*(N_ks_y-N_kl_y)+(N_ks_z-N_kl_z)*(N_ks_z-N_kl_z))!=0)){
+  //                sum_index = sum_index+1;
+  //                M_kl = std::sqrt(N_kl_x*N_kl_x+N_kl_y*N_kl_y+N_kl_z*N_kl_z);
+  //                dot_ls = N_kl_x*N_ks_x+N_kl_y*N_ks_y+N_kl_z*N_ks_z;
+  //                M_ks_counterpart = std::sqrt((N_ks_x-N_kl_x)*(N_ks_x-N_kl_x)+(N_ks_y-N_kl_y)*(N_ks_y-N_kl_y)+(N_ks_z-N_kl_z)*(N_ks_z-N_kl_z));
+  //                comb = (dot_ls-M_kl*M_kl)/(M_ks_counterpart*M_kl);
+  //                F2 = 5./7.+0.5*comb*(M_kl/M_ks_counterpart+M_ks_counterpart/M_kl)+2.*comb*comb/7.;
+  //                Int = Int + F2*cfield_ini2[indexing(N_kl_x)][indexing(N_kl_y)][indexing(N_kl_z)]*cfield_ini2[indexing(-N_kl_x+N_ks_x)][indexing(-N_kl_y+N_ks_y)][indexing(-N_kl_z+N_ks_z)];
+  //              }
+  //            }
   //           }
-  //     		// }
+  //        // }
 
-  //     	  std::cout << 2500.*2500.*2500.*Int*4.*PI*upperlimit*upperlimit*upperlimit/(3.*sum_index*(2.*PI)*(2.*PI)*(2.*PI)) << " " << N_ks_x << " " << N_ks_y << " " << N_ks_z << " " << cfield2[indexing(N_ks_x)][indexing(N_ks_y)][indexing(N_ks_z)]-cfield_ini2[indexing(N_ks_x)][indexing(N_ks_y)][indexing(N_ks_z)] << "\n";
-  //     	  myfile1 << real(2500.*2500.*2500.*Int*4.*PI*upperlimit*upperlimit*upperlimit/(3.*sum_index*(2.*PI)*(2.*PI)*(2.*PI))) << "\n";
+  //        std::cout << 2500.*2500.*2500.*Int*4.*PI*upperlimit*upperlimit*upperlimit/(3.*sum_index*(2.*PI)*(2.*PI)*(2.*PI)) << " " << N_ks_x << " " << N_ks_y << " " << N_ks_z << " " << cfield2[indexing(N_ks_x)][indexing(N_ks_y)][indexing(N_ks_z)]-cfield_ini2[indexing(N_ks_x)][indexing(N_ks_y)][indexing(N_ks_z)] << "\n";
+  //        myfile1 << real(2500.*2500.*2500.*Int*4.*PI*upperlimit*upperlimit*upperlimit/(3.*sum_index*(2.*PI)*(2.*PI)*(2.*PI))) << "\n";
   //         myfile2 << imag(2500.*2500.*2500.*Int*4.*PI*upperlimit*upperlimit*upperlimit/(3.*sum_index*(2.*PI)*(2.*PI)*(2.*PI))) << "\n";
   //         myfile3 << real(cfield2[indexing(N_ks_x)][indexing(N_ks_y)][indexing(N_ks_z)]-cfield_ini2[indexing(N_ks_x)][indexing(N_ks_y)][indexing(N_ks_z)]) << "\n";
   //         myfile4 << imag(cfield2[indexing(N_ks_x)][indexing(N_ks_y)][indexing(N_ks_z)]-cfield_ini2[indexing(N_ks_x)][indexing(N_ks_y)][indexing(N_ks_z)]) << "\n";
-  //     	}
+  //      }
   //     }
   // }
 
@@ -392,7 +392,7 @@ main(int argc, char* argv[])
   double dot_ls_counterpart;
   double F2;
   double F2_counterpart;
-  // double f;
+  double f;
   double g;
 
   double xi_magg;
@@ -401,10 +401,10 @@ main(int argc, char* argv[])
 
   double eps = 3./7.;
 
-  std::ofstream myfile1 ("lin/delta_real.txt");
-  std::ofstream myfile2 ("lin/delta_imag.txt");
-  std::ofstream myfile3 ("lin/Integral_real.txt");
-  std::ofstream myfile4 ("lin/Integral_imag.txt");
+  // std::ofstream myfile1 ("lin/delta_real.txt");
+  // std::ofstream myfile2 ("lin/delta_imag.txt");
+  // std::ofstream myfile3 ("lin/Integral_real.txt");
+  // std::ofstream myfile4 ("lin/Integral_imag.txt");
 
   for(N_kl_x=-6;N_kl_x<=6;N_kl_x=N_kl_x+2){
       for(N_kl_y=-6;N_kl_y<=6;N_kl_y=N_kl_y+2){
@@ -423,18 +423,15 @@ main(int argc, char* argv[])
             F2 = 5./7.-0.5*dot_ls*(M_kl/M_ks+M_ks/M_kl)/(M_kl*M_ks)+2.*dot_ls*dot_ls/(7.*M_kl*M_kl*M_ks*M_ks);
             F2_counterpart = 5./7.-0.5*dot_ls_counterpart*(M_kl/M_ks_counterpart+M_ks_counterpart/M_kl)/(M_kl*M_ks_counterpart)+2.*dot_ls_counterpart*dot_ls_counterpart/(7.*M_kl*M_kl*M_ks_counterpart*M_ks_counterpart);
             g = F2/(2.*matter_power_lin(k_h,p_h,M_ks_counterpart*delta_k,true))+F2_counterpart/(2.*matter_power_lin(k_h,p_h,M_ks*delta_k,true));
-            Int = Int + g*(cfield_ini2[indexing(int(xi_magg))][indexing(int(xj_magg))][indexing(int(xk_magg))])*(cfield_ini2[indexing(-int(xi_magg)+N_kl_x)][indexing(-int(xj_magg)+N_kl_y)][indexing(-int(xk_magg)+N_kl_z)]);
+            // Int = Int + g*(cfield_ini2[indexing(int(xi_magg))][indexing(int(xj_magg))][indexing(int(xk_magg))])*(cfield_ini2[indexing(-int(xi_magg)+N_kl_x)][indexing(-int(xj_magg)+N_kl_y)][indexing(-int(xk_magg)+N_kl_z)]);
 
             // Int = Int + g*(cfield2[indexing(int(xi_magg))][indexing(int(xj_magg))][indexing(int(xk_magg))]-cfield_ini2[indexing(int(xi_magg))][indexing(int(xj_magg))][indexing(int(xk_magg))])*(cfield2[indexing(-int(xi_magg)+N_kl_x)][indexing(-int(xj_magg)+N_kl_y)][indexing(-int(xk_magg)+N_kl_z)]-cfield_ini2[indexing(-int(xi_magg)+N_kl_x)][indexing(-int(xj_magg)+N_kl_y)][indexing(-int(xk_magg)+N_kl_z)]);
-            // f=F2*matter_power_lin(k_h,p_h,M_ks*delta_k,true)+F2_counterpart*matter_power_lin(k_h,p_h,M_ks_counterpart*delta_k,true);
-            // std::cout << "f*d=" << f*cfield2[640+N_kl_x/2][640+N_kl_y/2][640+N_kl_z/2] << " dot=" << cfield2[xi[i]][xj[i]][xk[i]]*cfield2[1280+N_kl_x/2-xi[i]][1280+N_kl_y/2-xj[i]][1280+N_kl_z/2-xk[i]];
+            f=F2*matter_power_lin(k_h,p_h,M_ks*delta_k,true)+F2_counterpart*matter_power_lin(k_h,p_h,M_ks_counterpart*delta_k,true);
+            Int = Int + f*g;
           }
 
-          std::cout << 2500.*2500.*2500.*Int*4.*PI*((upperlimit/h)*(upperlimit/h)*(upperlimit/h)-(lowerlimit/h)*(lowerlimit/h)*(lowerlimit/h))/(3.*sum_index*(2.*PI)*(2.*PI)*(2.*PI)) << " " << N_kl_x << " " << N_kl_y << " " << N_kl_z << " " << cfield_ini2[indexing(N_kl_x)][indexing(N_kl_y)][indexing(N_kl_z)] << "\n";
-          myfile1 << real(cfield_ini2[indexing(N_kl_x)][indexing(N_kl_y)][indexing(N_kl_z)]) << "\n";
-          myfile2 << imag(cfield_ini2[indexing(N_kl_x)][indexing(N_kl_y)][indexing(N_kl_z)]) << "\n";
-          myfile3 << real(2500.*2500.*2500.*Int*4.*PI*((upperlimit/h)*(upperlimit/h)*(upperlimit/h)-(lowerlimit/h)*(lowerlimit/h)*(lowerlimit/h))/(3.*sum_index*(2.*PI)*(2.*PI)*(2.*PI))) << "\n";
-          myfile4 << imag(2500.*2500.*2500.*Int*4.*PI*((upperlimit/h)*(upperlimit/h)*(upperlimit/h)-(lowerlimit/h)*(lowerlimit/h)*(lowerlimit/h))/(3.*sum_index*(2.*PI)*(2.*PI)*(2.*PI))) << "\n";
+          std::cout << 1./(Int*4.*PI*((upperlimit/h)*(upperlimit/h)*(upperlimit/h)-(lowerlimit/h)*(lowerlimit/h)*(lowerlimit/h))/(3.*sum_index*(2.*PI)*(2.*PI)*(2.*PI))) << " " << N_kl_x << " " << N_kl_y << " " << N_kl_z << " " << cfield_ini2[indexing(N_kl_x)][indexing(N_kl_y)][indexing(N_kl_z)] << "\n";
+
 
 
         }
@@ -443,17 +440,10 @@ main(int argc, char* argv[])
 
 
 
-  myfile1.close();
-  myfile2.close();
-  myfile3.close();
-  myfile4.close();
-
-
-
   // cfield2.clear();
   // cfield2.shrink_to_fit();
   cfield_ini2.clear();
   cfield_ini2.shrink_to_fit();
-	
+  
   return 0.;
 }
