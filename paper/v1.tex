@@ -65,7 +65,7 @@
 \newcommand{\MR}[1]{{\color{blue} MR: #1}}
 \newcommand{\nl}{\\ \indent}
 \begin{document}
-\title{Large Scale Modes Reconstruction with Short-Wavelength Modes}
+\title{Large Scale Density Reconstruction with Short-Wavelength Modes}
 \author{\large Peikai Li}
 \author{\large Scott Dodelson}
 \author{\large XXX}
@@ -73,7 +73,7 @@
 
 \date{\today}
 \begin{abstract}
-
+We can learn about the universe on large scales by measuring perturbations on small scales. 
 \end{abstract}
 \maketitle
 \section{Introduction}
@@ -86,7 +86,7 @@ In this section we review the SPT\footnote{SPT stands for standard perturbation 
 (\frac{\partial}{\partial \tau} +\vec{v}(\vec{x},\tau)&\times&\vec{\nabla})\vec{v}(\vec{x},\tau)=-\frac{da}{d\tau}\frac{\vec{v}(\vec{x},\tau)}{a}-\vec{\nabla}\Phi \eql{eulereq}\\
 &&\nabla^2 \Phi = 4\pi G a^2 \bar{\rho}_{\rm m} \delta(\vec{x},\tau) 
 \eea
-these equations fully determine the time evolution of the local density contrast $\delta$ and the peculiar velocity field $\vec{v}=d\vec{x}/d\tau$. Taking the divergence of \ec{eulereq} we can eliminate the gravitational potential $\Phi$ in Fourier space and get:
+these equations fully determine the time evolution of the local density contrast $\delta$ and the peculiar velocity field $\vec{v}=d\vec{x}/d\tau$. Taking the divergence of \ec{eulereq} we can eliminate the gravitational potential $\Phi$ in Fourier space and get time evolution equations for $\delta(\vk,\tau)$ and $\theta(\vk,\tau)$:
 \bea 
 \frac{\partial{\delta}}{\partial\tau} + {\theta} &=& -\int \frac{d^{3}\vk_{1}}{(2\pi)^3} \int \frac{d^{3}\vk_{2}}{(2\pi)^3} (2\pi)^3 \delta_{\rm D}(\vk-\vk_{12}) \vs
 && \times\frac{\vk \cdot \vk_1}{k_1^2}{\theta}(\vk_1,\tau){\delta}(\vk_2,\tau) \eql{fouriercont}\\
@@ -128,7 +128,7 @@ Time-dependent second-order density contrast can be expressed as convolution of 
 
 \section{Quadratic Estimator}
 Comparison with CMB lensing \cite{123} \\
-Compute the correlation function of two short-wavelength modes $\vk_s$ and $\vk_s'$, in the squeezed limit $|\vk_s+\vk_s'|\ll |\vk_s|, \,|\vk_s'|$ up two second-order ($\tau$ is fixed):
+Compute the correlation function of two short-wavelength modes $\vk_s$ and $\vk_s'$, in the squeezed limit $|\vk_s+\vk_s'|\ll |\vk_s|, \,|\vk_s'|$ up to second-order ($\tau$ is fixed):
 \bea 
 && \langle {\delta}(\vec{k}_s){\delta}(\vec{k}_s') \rangle|_{(\vk_s+\vk_s')\neq 0}
 \vs 
@@ -139,7 +139,7 @@ Substituting \ec{sorder} into the first bracket we get:
 \langle {\delta}^{(1)}(\vec{k}_s){\delta}^{(2)}(\vec{k}_s') \rangle =  \int \frac{d^3\vec{k}}{(2\pi)^3} F_2 (\vec{k},\vec{k}_s'-\vec{k})\vs
 \times \langle {\delta}^{(1)}(\vec{k}_s){\delta}^{(1)}(\vec{k}_s'-\vec{k}){\delta}^{(1)}(\vec{k}) \rangle \eql{integral}
 \eea 
-This correlation function with three Gaussian fields is nonzero under following consideration: if a three-point correlation function consists of two short-wavelength modes and one long-wavelength mode, we can do the following contraction:
+We claim that this correlation function with three Gaussian fields is nonzero under following consideration: if a three-point correlation function consists of two short-wavelength modes and one long-wavelength mode, we can do the following contraction:
 \be 
 \langle
 \contraction{}{{\delta}}{{\delta}(\vk_s'\,}{}
@@ -181,19 +181,24 @@ The Gaussian noise is given by:
 \ee 
 with 
 \begin{eqnarray}
-&&N(\vec{k}_{l})=2A^2(k_{l})\vs
+&&N(\vec{k}_{l})=2A^2(\vk_{l})\vs
 &&\times\int \frac{d^3 \vec{k}_{s}}{(2\pi)^3} g^2(\vec{k}_{s},\vk_l-\vec{k}_{s})P_{\rm nl}(k_{s})P_{\rm nl}(|\vk_l-\vk_s|)
 \end{eqnarray}
 where $P_{\rm nl}$ is the nonlinear power spectrum. Minimizing the noise term we can fix the form of $g$ to be:
 \begin{eqnarray}
 g(\vec{k}_{s},\vec{k}_{s}')=\frac{f(\vec{k}_{s},\vec{k}_{s}')}{2P_{\rm nl}(k_{s})P_{\rm nl}(k_{s}')}
 \end{eqnarray} 
-Noise term reduces simply to $N(\vk_l)=A(\vk_l)$.
+Noise term reduces simply to $N(\vk_l)=A(\vk_l)$.\\
+Plot of $P$ vs. $A$ on large scales.
+
+\section{N-Body Simulation}
+We tested the power of the quadratic estimator using data from snapshot at $z=0$ of BigMPDL, one of the MultiDark cosmological simulations\cite{Klypin:2014nov}.
+
 \section{Discussion}
 
 
 \acknowledgements
-We thank XXX for resourceful discussions.  SD and PL were supported by U.S.\ Dept.\ of Energy contract DE-SC0019248.
+We thank Lam Hui, XXX for resourceful discussions.  SD and PL were supported by U.S.\ Dept.\ of Energy contract DE-SC0019248.
 %\input{main.bbl}
 \bibliography{refs}
 \end{document}
