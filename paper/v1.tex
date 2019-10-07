@@ -165,7 +165,7 @@ We claim that generally correlation function with three Gaussian fields is nonze
 \contraction{}{{\delta}}{{\delta^{(1)}\;\;\;\;}(}{}
 {\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}){\delta^{(1)}}(\vk_3) 
 \rangle
-=\langle {\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}) \rangle {\delta^{(1)}}(\vk_3) 
+=\langle {\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}) \rangle {\delta^{(1)}}(\vk_3)  \eql{contraction}
 \ee 
 $\vk_1$ and $\vk_2$ corresponds to two arbitrary short modes and $\vk_3$ arbitrary long mode. The above equation is true since in a real life survey, we can only measure this long-wavelength mode very limited times. Thus it won't have any statistical property and we can safely extract the long-wavelength mode out of the bracket.\\
 We can do this contraction twice in this integral. One occurs when $|\vk| \ll |\vk_s|,\, |\vk_s'-\vk|$, we can extract ${\delta}^{(1)}(\vk)$ out; the other one occurs when $|\vk_s'-\vk| \ll |\vk|,\,|\vk_s|$.\\
@@ -221,6 +221,7 @@ Ultimate goal of this approach is to reproduce large scale structure in real spa
 
 \section{Conclusion}\label{sec4}
 In this paper, we have proposed a new and powerful method to measure long-wavelength modes without having to actually measure large scale structure directly. The noise term $N=A$ would reduce significantly if we go higher into nonlinear regime while second-order SPT is no longer accurate in this case. Thus if we want to detect even larger scales, we might need to use contributions from higher order perturbations and expand the integration range to reduce noise level. \\
+Another concern is the range of long-wavelength modes we are able to detect. In the N-body simulation, we use $k_l$ from largest possible mode $1.7 \times 10^{-3} \, \rm Mpc^{-1}$ to $8.9\times 10^{-3} \, \rm Mpc^{-1}$. If we try to measure smaller modes, the quadratic estimator approach would be inaccurate since the contraction \ec{contraction} is no longer valid in this case.\\
 Our quadratic estimator of long-wavelength modes in this paper is only valid in a box at a given cosmological time. While in real photometric redshift surveys we would deal with light cones instead of boxes. Thus we expect the expression for the quadratic estimator to be generalized in that case. Also when applied to halos or galaxies, this approach can be used to help determine galaxy bias. We leave these to future work.
 
 \acknowledgements
