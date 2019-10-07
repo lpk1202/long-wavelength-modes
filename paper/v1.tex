@@ -97,16 +97,16 @@ Starting from second-order SPT\footnote{SPT stands for standard perturbation the
 \\
 Inspired by CMB lensing quadratic estimator's construction, where small scale temperature correlation functions have off-diagonal terms due to
 large scale perturbations caused by gravitational lensing. The same procedure applies in our case as well - off-diagonal terms of small scale correlations are no-longer zero due to large scale modes. Thus we can create quadratic estimator for long-wavelength modes using exact same routine. \\
-We begin with a brief review of standard perturbation theory and its detailed formalism up to second-order in section \ref{sec1}. Then we build the quadratic estimator and compute signal-to-noise of the estimator in section \ref{sec2}. In \ref{sec3} we present a concise study of the estimator with data from N-body simulation. Finally we conclude this work and discuss future work related to this in section \ref{sec4}. We use $\Lambda$CDM universe with the Planck Collaboration XVI (2014) \cite{Planck:2014cos} cosmological parameters in this work (same as parameters of the N-body simulation).
+We begin with a brief review of standard perturbation theory and its detailed formalism up to second-order in section \ref{sec1}. Then we build the quadratic estimator and compute signal-to-noise of the estimator in section \ref{sec2}. In \ref{sec3} we present a concise study of the estimator with data from N-body simulation. Finally we conclude this work and discuss future work related to this in section \ref{sec4}. We use $\Lambda$CDM universe with Planck Collaboration XVI (2014) \cite{Planck:2014cos} cosmological parameters in this work (same as parameters of the N-body simulation).
 
 \section{Standard Perturbation Theory}\label{sec1}
-In this section we review the SPT approach of describing small scale nonlinearity. In the case of a perfect pressurelesee fluid, the nonrelativistic cosmological fluid equations are continuity, Euler and Poisson equations:
+In this section we review the SPT approach which describes small scale nonlinearity. In the case of a perfect pressurelesee fluid, the nonrelativistic cosmological fluid equations are continuity, Euler and Poisson equations:
 \bea
 \frac{\partial \delta(\vec{x},\tau)}{\partial \tau} &+&\vec{\nabla}\times [(1+\delta(\vec{x},\tau))\vec{v}(\vec{x},\tau)] =0 \\
 (\frac{\partial}{\partial \tau} +\vec{v}(\vec{x},\tau)&\times&\vec{\nabla})\vec{v}(\vec{x},\tau)=-\frac{da}{d\tau}\frac{\vec{v}(\vec{x},\tau)}{a}-\vec{\nabla}\Phi \eql{eulereq}\\
 &&\nabla^2 \Phi = 4\pi G a^2 \bar{\rho}_{\rm m} \delta(\vec{x},\tau) 
 \eea
-these equations fully determine the time evolution of the local density contrast $\delta$ and the peculiar velocity field $\vec{v}=d\vec{x}/d\tau$. Taking the divergence of \ec{eulereq} we can eliminate the gravitational potential $\Phi$ in Fourier space and get time evolution equations for $\delta(\vk,\tau)$ and $\theta(\vk,\tau)$:
+these equations fully determine the time evolution of the local density contrast $\delta$ and the peculiar velocity field $\vec{v}=d\vec{x}/d\tau$. Taking the divergence of \ec{eulereq} we can eliminate the gravitational potential $\Phi$ in Fourier space and get evolution equations for $\delta(\vk,\tau)$ and $\theta(\vk,\tau)$ in Fourier space:
 \bea 
 \frac{\partial{\delta}}{\partial\tau} + {\theta} &=& -\int \frac{d^{3}\vk_{1}}{(2\pi)^3} \int \frac{d^{3}\vk_{2}}{(2\pi)^3} (2\pi)^3 \delta_{\rm D}(\vk-\vk_{12}) \vs
 && \times\frac{\vk \cdot \vk_1}{k_1^2}{\theta}(\vk_1,\tau){\delta}(\vk_2,\tau) \eql{fouriercont}\\
@@ -118,7 +118,7 @@ In Einstein-de Sitter space, linear growth function $D_{1}(a)=a$ and we can solv
 \bea
 {\delta}(\vk,\tau)&=&\sum_{n=1}^{\infty} {\delta}^{(n)}(\vk,\tau)=\sum_{n=1}^{\infty}a^{n}(\tau)\delta_{n}(\vk) \\ {\theta}(\vk,\tau)&=&\sum_{n=1}^{\infty}{\theta}^{(n)}(\vk,\tau)=-H(\tau)\sum_{n=1}^{\infty}a^{n+1}(\tau)\theta_{n}(\vk) 
 \eea
-\\where the superscript $(n)$ means the order of perturbation theory, and first order term ${\delta}^{(1)}$ corresponds to linear evolution. Linear power spectrum is given by this term via:
+\\where the superscript $(n)$ means the order of perturbation theory, and first order term ${\delta}^{(1)}$ corresponds to linear evolution. Linear power spectrum is given by this first order term via:
 \be 
 \langle {\delta}(\vk){\delta}(\vk') \rangle =(2\pi)^3 \delta_{\rm D}(\vk+\vk')P_{\rm lin}(k) \eql{lin}
 \ee 
@@ -134,7 +134,7 @@ and recursion relations are encoded in kernels $F_n$ and $G_n$. Since we only co
 F_{2}(\vk_1,\vk_2)=\frac{5}{7}+\frac{2}{7}\frac{(\vk_1\cdot \vk_2)^2}{k_1^2 k_2^2}+\frac{\vk_1\cdot \vk_2}{2k_1k_2}(\frac{k_1}{k_2}+\frac{k_2}{k_1}) \\
 G_{2}(\vk_1,\vk_2)=\frac{3}{7}+\frac{4}{7}\frac{(\vk_1\cdot \vk_2)^2}{k_1^2 k_2^2}+\frac{\vk_1\cdot \vk_2}{2k_1k_2}(\frac{k_1}{k_2}+\frac{k_2}{k_1})
 \eea 
-This approach gives a nearly accurate description of $\Lambda$CDM universe \cite{Takahashi:2008to} with a slight generalization:
+This approach gives a nearly accurate description of $\Lambda$CDM universe \cite{Takahashi:2008to} with slight generalization \cite{Bernardeau:2002rev}:
 \bea
 {\delta}(\vk,\tau) &=&\sum_{n=1}^{\infty} {\delta}^{(n)}(\vk,\tau)=\sum_{n=1}^{\infty}D_1^{n}(\tau)\delta_{n}(\vk) \\
 {\theta}(\vk,\tau)&=&\sum_{n=1}^{\infty}{\theta}^{(n)}(\vk,\tau)\vs
@@ -147,7 +147,8 @@ Time-dependent second-order density contrast can be expressed as convolution of 
 Second-order SPT gets less accurate higher in the nonlinear regime and will produce a bias of our quadratic estimator, we can see this effect in \ref{sec3}.
 
 \section{Quadratic Estimator}\label{sec2}
-Compute the correlation function of two short-wavelength modes $\vk_s$ and $\vk_s'$, in the squeezed limit $\vk_l=\vk_s+\vk_s'$ up to second-order ($\tau$ is fixed):
+For the remainder if the paper, we use subscript $s$ to represent small scale or short-wavelength modes, while $l$ stands for large scale or long-wavelength modes. We also fix $\tau$ at today.\\
+Compute the correlation function of two short-wavelength modes $\vk_s$ and $\vk_s'$, in the squeezed limit $\vk_l=\vk_s+\vk_s'$ up to second-order:
 \bea 
 && \langle {\delta}(\vec{k}_s){\delta}(\vec{k}_s') \rangle|_{\vk_s+\vk_s'=\vk_l}
 \vs 
@@ -162,11 +163,11 @@ We claim that generally correlation function with three Gaussian fields is nonze
 \be 
 \langle
 \contraction{}{{\delta}}{{\delta^{(1)}\;\;\;\;}(}{}
-{\delta^{(1)}}(\vk_{s}) {\delta^{(1)}}(\vk_{s}'){\delta^{(1)}}(\vk_l') 
+{\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}){\delta^{(1)}}(\vk_3) 
 \rangle
-=\langle {\delta^{(1)}}(\vk_{s}) {\delta^{(1)}}(\vk_{s}') \rangle {\delta^{(1)}}(\vk_l') 
+=\langle {\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}) \rangle {\delta^{(1)}}(\vk_3) 
 \ee 
-Since in a real life survey, we can only measure this long-wavelength mode limited times. Thus it won't have any statistical property and we can safely extract the long-wavelength mode out of the bracket.\\
+$\vk_1$ and $\vk_2$ corresponds to two arbitrary short modes and $\vk_3$ arbitrary long mode. The above equation is true since in a real life survey, we can only measure this long-wavelength mode very limited times. Thus it won't have any statistical property and we can safely extract the long-wavelength mode out of the bracket.\\
 We can do this contraction twice in this integral. One occurs when $|\vk| \ll |\vk_s|,\, |\vk_s'-\vk|$, we can extract ${\delta}^{(1)}(\vk)$ out; the other one occurs when $|\vk_s'-\vk| \ll |\vk|,\,|\vk_s|$.\\
 Use \ec{lin} the integral in \ec{integral} can be evaluated as:
 \bea 
@@ -177,7 +178,7 @@ lin}(k_s){\delta}^{(1)}(\vec{k}) \vs
 lin}(k_s){\delta}^{(1)}(\vk_s'-\vk) \vs
 &=&2F_2(-\vk_s,\vk_s+\vk_s')P_{\rm lin}(k_s){\delta}^{(1)}(\vk_s+\vk_s')
 \eea 
-Finally we have:
+where we use the fact that $F_2$ is symmetric function. Finally we have:
 \be 
 \langle {\delta}(\vec{k}_s){\delta}(\vec{k}_s') \rangle =f(\vec{k}_s,\vec{k}_s'){\delta}^{(1)}(\vec{k}_l) \eql{2pt}
 \ee 
@@ -196,7 +197,7 @@ A(\vec{k}_l)=\bigg[\int \frac{d^3 \vec{k}_s}{(2\pi)^3} g(\vec{k}_s,\vec{k}_s')f(
 \end{eqnarray}
 The Gaussian noise is given by:
 \be 
-\langle \hat{\delta}^{(1)}(\vk_{l})\hat{\delta}^{(1)}(\vk_{l}') \rangle = (2\pi)^3 \delta_{\rm D}[\vk_{l}-\vk_{l}')(P_{\rm lin}(k_{l})+N(\vk_l)]
+\langle \hat{\delta}^{(1)}(\vk_{l})\hat{\delta}^{(1)}(\vk_{l}') \rangle = (2\pi)^3 \delta_{\rm D}(\vk_{l}-\vk_{l}')[P_{\rm lin}(k_{l})+N(\vk_l)]
 \ee 
 with 
 \begin{eqnarray}
@@ -208,7 +209,7 @@ where $P_{\rm nl}$ is the nonlinear power spectrum. Minimizing the noise term we
 g(\vec{k}_{s},\vec{k}_{s}')=\frac{f(\vec{k}_{s},\vec{k}_{s}')}{2P_{\rm nl}(k_{s})P_{\rm nl}(k_{s}')}
 \end{eqnarray} 
 Noise term reduces simply to $N(\vk_l)=A(\vk_l)$.\\
-\Sfig{SN}{Detectability of long-wavelength modes. We use a toy survey of boxsize $8.85\, \rm Gpc$.}
+\Sfig{SN}{Detectability of long-wavelength modes. We assume a toy survey of boxsize $8.85\, \rm Gpc$.}
 
 \section{N-Body Simulation}\label{sec3}
 We test the power of the quadratic estimator using data from snapshot at $z=0$ of BigMPDL, one of the MultiDark cosmological simulations \cite{Klypin:2014nov}. Boxsize of BigMDPL is $3.7\,\rm Gpc$. We use dark matter particle data to produce matter inhomogeneities. Galaxy bias should be considered if we use galaxy catalog.\\
