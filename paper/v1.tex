@@ -124,7 +124,7 @@ with
 \be
 F_{2}(\vk_1,\vk_2)=\frac{5}{7}+\frac{2}{7}\frac{(\vk_1\cdot \vk_2)^2}{k_1^2 k_2^2}+\frac{\vk_1\cdot \vk_2}{2k_1k_2}(\frac{k_1}{k_2}+\frac{k_2}{k_1})\eql{f2}
 \ee
-Notice \ec{pert1}, \ec{pert2} and \ec{f2} are completely accurate only in Einstein-de Sitter universe. Nonetheless when we actually do related calculation in $\Lambda$CDM universe, the difference is negligible \cite{Takahashi:2008to} thus we still use the expression from \ec{pert1} and \ec{f2} throughout the whole work.\\
+Notice \ec{pert1}, \ec{pert2} and \ec{f2} are completely accurate only in Einstein-de Sitter universe. Nonetheless when we actually do related calculations in $\Lambda$CDM universe, the difference is negligible \cite{Takahashi:2008to} thus we still use the expression from \ec{pert1} and \ec{f2} throughout the whole work.\\
 Compute the two-point correlations of two short-wavelength modes $\vk_s$ and $\vk_s'$, in the squeezed limit $\vk_l=\vk_s+\vk_s'$ up to second-order where $\vk_l$ corresponds to a long-wavelength mode we have ($\tau$ is fixed at today):
 \bea 
 && \langle {\delta}(\vec{k}_s){\delta}(\vec{k}_s') \rangle|_{\vk_s+\vk_s'=\vk_l}
@@ -136,7 +136,7 @@ Substituting \ec{sorder} into the first bracket we get:
 \langle {\delta}^{(1)}(\vec{k}_s){\delta}^{(2)}(\vec{k}_s') \rangle =  \int \frac{d^3\vec{k}}{(2\pi)^3} F_2 (\vec{k},\vec{k}_s'-\vec{k})\vs
 \times \langle {\delta}^{(1)}(\vec{k}_s){\delta}^{(1)}(\vec{k}_s'-\vec{k}){\delta}^{(1)}(\vec{k}) \rangle \eql{integral}
 \eea 
-We claim that generally correlation function of three Gaussian fields is nonzero under following consideration: if a three-point correlation function consists of two short-wavelength modes and one long-wavelength mode, we can do the following contraction:
+\peikai{Need to rephrase (don't know how): We claim that generally correlation function of three Gaussian fields is non-zero under following consideration: if a three-point correlation function consists of two short-wavelength modes and one long-wavelength mode, we can do the following contraction:
 \be 
 \langle
 \contraction{}{{\delta}}{{\delta^{(1)}\;\;\;\;}(}{}
@@ -144,7 +144,7 @@ We claim that generally correlation function of three Gaussian fields is nonzero
 \rangle
 =\langle {\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}) \rangle {\delta^{(1)}}(\vk_3)  \eql{contraction}
 \ee 
-$\vk_1$ and $\vk_2$ corresponds to two arbitrary short modes and $\vk_3$ arbitrary long mode. The above equation is true since in a real life survey, we can only measure this long-wavelength mode very limited times. Thus it won't have any statistical property and we can safely extract the long-wavelength mode out of the bracket.\\
+$\vk_1$ and $\vk_2$ corresponds to two arbitrary short modes and $\vk_3$ arbitrary long mode. The above equation is true since in a real life survey, we can only measure this long-wavelength mode very limited times. Thus it won't have any statistical property and we can safely extract the long-wavelength mode out of the bracket.}\\
 We can do this contraction twice in this integral \ec{integral}. One occurs when $|\vk| \ll |\vk_s|,\, |\vk_s'-\vk|$, we can extract ${\delta}^{(1)}(\vk)$ out; the other one occurs when $|\vk_s'-\vk| \ll |\vk|,\,|\vk_s|$.\\
 Use \ec{lin} the integral in \ec{integral} can be evaluated as:
 \bea 
@@ -155,7 +155,7 @@ lin}(k_s){\delta}^{(1)}(\vec{k}) \vs
 lin}(k_s){\delta}^{(1)}(\vk_s'-\vk) \vs
 &=&2F_2(-\vk_s,\vk_s+\vk_s')P_{\rm lin}(k_s){\delta}^{(1)}(\vk_s+\vk_s')
 \eea 
-where we use the fact that $F_2$ is symmetric function. Finally we have:
+where we use the fact that $F_2$ is a symmetric function. Finally we have:
 \be 
 \langle {\delta}(\vec{k}_s){\delta}(\vec{k}_s') \rangle =f(\vec{k}_s,\vec{k}_s'){\delta}^{(1)}(\vec{k}_l) \eql{2pt}
 \ee 
