@@ -5,6 +5,7 @@
 \def\bea{\begin{eqnarray}}
 \def\eea{\end{eqnarray}}
 \newcommand{\vs}{\nonumber\\}
+\newcommand{\Var}{\rm Var}
 \newcommand{\vk}{\vec{k}}
 \newcommand{\ec}[1]{Eq.~(\ref{eq:#1})}
 \newcommand{\eec}[2]{Eqs.~(\ref{eq:#1}) and (\ref{eq:#2})}
@@ -15,7 +16,7 @@
 \includegraphics[width=#2]{../plots/#1}
         }
 \newcommand{\sfigg}[2]{
-\includegraphics[width=0.9\paperwidth]{../plots/#1}
+\includegraphics[width=0.88\paperwidth]{../plots/#1}
         }
 \newcommand{\sfigr}[2]{
 \includegraphics[angle=270,origin=c,width=#2]{#1}
@@ -69,8 +70,6 @@
 \definecolor{darkgreen}{cmyk}{0.85,0.1,1.00,0} 
 \newcommand{\scott}[1]{{\color{darkgreen} #1}}
 \newcommand{\peikai}[1]{{\color{blue} #1}}
-\newcommand{\WH}[1]{{\color{red} #1}}
-\newcommand{\wh}[1]{{\color{red} #1}}
 \newcommand{\prvs}[1]{{\color{magenta} #1}}
 \newcommand{\AL}[1]{{\color{magenta} AL: #1}}
 \newcommand{\MR}[1]{{\color{blue} MR: #1}}
@@ -87,7 +86,7 @@
 
 \date{\today}
 \begin{abstract}
-\noindent Large scale density modes cannot be measured directly through surveys but we can study them by measuring perturbations on small scales. Cosmological perturbation theory predicts that second-order density inhomogeneities are a convolution of a short- and a long-wavelength mode. This arises physically because small structure structure varies depending on the large scale environment in which it resides. This will induce position-dependent clustering in real space and an off-diagonal term in two-point statistics in Fourier space. Therefore we can build a quadratic estimator for the large scale field. We demonstrate that this quadratic estimator works amazingly well for our N-body simulation test.
+\noindent Large scale density modes cannot be measured directly through surveys but we can study them by measuring perturbations on small scales. Cosmological perturbation theory predicts that second-order density inhomogeneities are a convolution of a short- and a long-wavelength mode. This arises physically because small structure structure varies depending on the large scale environment in which it resides. This will induce small scale clustering in real space and an off-diagonal term in two-point statistics in Fourier space. Therefore we can build a quadratic estimator for the large scale field. We demonstrate that this quadratic estimator works amazingly well for our N-body simulation test.
 
 \end{abstract}
 \maketitle
@@ -99,7 +98,7 @@ During CMB lensing quadratic estimator's construction, small scale two-point cor
 We begin with a brief review of SPT up to second-order in section \ref{sec1}. Then we build the quadratic estimator and compute the detectability of the estimator in section \ref{sec2}. In section \ref{sec3} we present a concise study of the estimator with data from N-body simulation. Finally we conclude this work and discuss future work related to this in section \ref{sec4}. We use flat $\Lambda$CDM model with Planck Collaboration XVI (2014) \cite{Planck:2014cos} cosmological parameters in this work (same as parameters of the N-body simulation).
 
 \section{Standard Perturbation Theory}\label{sec1}
-In this section we review the SPT approach which describes small scale nonlinearity. Then we compute the off-diagonal term of two short-wavelength modes in the squeezed limit. This off-diagonal term proportional to \peikai{with or without an "a"?}long-wavelength mode will be the key factor of constructing the quadratic estimator. \\
+In this section we review the SPT approach which describes small scale nonlinearity. Then we compute the off-diagonal term of two short-wavelength modes in the squeezed limit. This off-diagonal term proportional to a long-wavelength mode will be the key factor of constructing the quadratic estimator. \\
 Starting from a perfect pressureless fluid, the nonrelativistic cosmological fluid equations are continuity, Euler and Poisson equations:
 \bea
 \frac{\partial \delta(\vec{x},\tau)}{\partial \tau} &+&\vec{\nabla}\times [(1+\delta(\vec{x},\tau))\vec{v}(\vec{x},\tau)] =0\eql{fluid1} \\
@@ -212,11 +211,11 @@ In this section we construct the quadratic estimator for long-wavelength modes s
 \begin{eqnarray}
 \hat{\delta}^{(1)}(\vec{k}_l)=A(\vec{k}_l)\int \frac{d^3 \vec{k}_s}{(2\pi)^3} g(\vec{k}_s,\vec{k}_s'){\delta}(\vec{k}_s){\delta}(\vec{k}_s') \eql{quadest}
 \end{eqnarray} 
-with $g$ being weighting function, $\vk_s'=\vk_l-\vk_s$ and $A$ is defined via $\langle \hat{\delta}^{(1)}(\vec{k}_l) \rangle={\delta}^{(1)}(\vec{k}_l)$:
+with $g$ being weighting function, $\vk_s'=\vk_l-\vk_s$ and $A$ is defined by requiring $\langle \hat{\delta}^{(1)}(\vec{k}_l) \rangle={\delta}^{(1)}(\vec{k}_l)$:
 \begin{eqnarray}
 A(\vec{k}_l)=\bigg[\int \frac{d^3 \vec{k}_s}{(2\pi)^3} g(\vec{k}_s,\vec{k}_s')f(\vec{k}_s,\vec{k}_s')  \bigg]^{-1} \eql{a}
 \end{eqnarray}
-The Gaussian noise is given by:
+In the absence of shot noise the Gaussian noise is given by:
 \be 
 \langle \hat{\delta}^{(1)}(\vk_{l})\hat{\delta}^{(1)}(\vk_{l}') \rangle = (2\pi)^3 \delta_{\rm D}(\vk_{l}-\vk_{l}')[P_{\rm lin}(k_{l})+N(\vk_l)]
 \ee 
@@ -238,17 +237,17 @@ here $V$ is the volume of a survey and we can compute the detectability for a se
 \Sfig{SN}{Long-wavelength power spectrum and its error from \ec{error} which can be expressed as $P(k_l)\sigma(k_l)$. We assume a toy survey of boxsize $L=6\, \rm Gpc$, thus volume $V=L^3$ and width $\Delta k = 2\pi/L$. Moreover, we set the integration range for $\vk_s$ from $0.02 \, \rm Mpc^{-1}$ to $0.15\,\rm Mpc^{-1}$. We will see in the next section \ref{sec3} that this choice of the upper limit of integration is very reasonable for our current construction at $z=0$.}
 
 \section{Demonstration with N-Body Simulation}\label{sec3}
-We test the power of the quadratic estimator using data from snapshot at $z=0$ of BigMPDL, one of the MultiDark cosmological simulations \cite{Klypin:2014nov}. Boxsize of BigMDPL is $3.7\,\rm Gpc$. We use dark matter particle data to produce matter inhomogeneities. Galaxy bias should be considered if we use galaxy catalog.\\
-We use nbodykit code to get Fourier density modes \cite{Hand:2018nby} and compare $\delta(\vk_l)$ with $\hat{\delta}(\vk_l)$ in Fig.~\rf{hist}. $\delta(\vk_l)$ is the long-wavelength modes we get directly from N-body simulation and $\hat{\delta}(\vk_l)$ is the reproduced modes using quadratic estimator \ec{quadest}.\\
+We test the power of the quadratic estimator using snapshot at $z=0$ data of BigMPDL, one of the MultiDark cosmological simulations \cite{Klypin:2014nov}. Boxsize of BigMDPL is $3.7\,\rm Gpc$. We use dark matter particle data to produce matter inhomogeneities. Galaxy bias \cite{Desjacques:2018rev} should be otherwise considered if galaxy or halo catalog is used.\\
+We use nbodykit code to get Fourier density modes \cite{Hand:2018nby} and compare $\delta(\vk_l)$ with $\hat{\delta}(\vk_l)$ for a 3D grid of $\vk_l$ in Fig.~\rf{hist}. $\delta(\vk_l)$ are the long-wavelength modes we get directly from N-body simulation and $\hat{\delta}(\vk_l)$ are the reproduced modes using quadratic estimator \ec{quadest}.\\
 \Sfig{hist}{Histogram of number counts of $|\hat{\delta}(\vk_l)/\delta(\vk_l)|$ in Fourier space with different integration range of $k_s$. We can see that in the weakly nonlinear regime, left plot peaks at $1$ which is what we would expect. While for the right plot, when we go higher into nonlinear scale, ratio peak at about $1.3$. This bias comes from the inaccuracy of second-order perturbation theory.}
-
-Ultimate goal of this approach is to reproduce large scale structure in real space. Compare $\delta$ and $\hat{\delta}$ in real space in Fig.~\rf{real} and we can see the quadratic estimator is quite effective for this simulation.
-\Sfigg{real}{Comparison between $\delta(\vec{x})$ and $\hat{\delta}(\vec{x})$ and their difference. The 3D grid of data points are unfolded into 2D grids, $7$ columns corresponds to $7$ slices we have. The upper limit of $\vk_s$ is chosen to be $0.15 \, \rm Mpc^{-1}$.}
+Ultimate goal of this approach is to reproduce large scale structure in real space. Compare $\delta$ and $\hat{\delta}$ in real space in Fig.~\rf{real} and we can check the robustness of the quadratic estimator for this simulation.
+\Sfigg{real}{Comparison between $\delta(\vec{x})$ and $\hat{\delta}(\vec{x})$ and their difference. The 3D grid of data points are unfolded into 2D grids, $7$ columns corresponds to $7$ slices we have. The upper limit of $\vk_s$ is chosen to be $0.15 \, \rm Mpc^{-1}$. We can compute the signal-to-noise ratio as: $S/N=\Var(\delta)/\Var(\hat{\delta}-\delta)\approx 3$.\peikai{comment?}}
 
 \section{Conclusion}\label{sec4}
 In this paper, we have proposed a new and powerful method to measure long-wavelength modes without having to actually measure large scale structure directly. The noise term $N=A$ would reduce significantly if we go higher into nonlinear regime while second-order SPT is no longer accurate in this case. Thus if we want to detect even larger scales, we might need to use contributions from higher order perturbations and expand the integration range to reduce noise level. \\
 Another concern is the range of long-wavelength modes we are able to detect. In the N-body simulation, we use $k_l$ from largest possible mode $1.7 \times 10^{-3} \, \rm Mpc^{-1}$ to $8.9\times 10^{-3} \, \rm Mpc^{-1}$. If we try to measure smaller modes, the quadratic estimator approach would be inaccurate since the contraction \ec{contraction} is no longer valid in this case.\\
-Our quadratic estimator of long-wavelength modes in this paper is only valid in a box at a given cosmological time. While in photometric redshift surveys we would deal with light cones instead of boxes. Thus we expect the expression for the quadratic estimator to be generalized for photometric surveys. Moreover, we notice that the upper limit of integration range should also increase if we consider higher redshift, in order to include more nonlinear information. When applied to halos or galaxies, this approach can be used to help determine galaxy bias. We leave these to future work.
+Our current formalism of the quadratic estimator for long-wavelength modes in this paper is only valid in a box at a given cosmological time. While in photometric redshift surveys we would deal with light cones instead of boxes. Thus we expect the expression for the quadratic estimator to be generalized for photometric surveys. Moreover, we notice that the upper limit of integration range should also increase if we consider higher redshift, in order to include more nonlinear information. When applied to halos or galaxies, this approach should be modified to include galaxy bias. We leave these to future work.\\
+\\ \\ \\ \\
 
 \acknowledgements
 \noindent We thank Adam Solomon, Duncan Campbell, Fabian Schmidt and Lam Hui for resourceful discussions.  SD, PL and RC were supported by U.S.\ Dept.\ of Energy contract DE-SC0019248.\\
