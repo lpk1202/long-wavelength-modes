@@ -68,12 +68,14 @@
 }
 \usepackage[all]{hypcap} 
 \definecolor{darkgreen}{cmyk}{0.85,0.1,1.00,0} 
+\definecolor{darkorange}{rgb}{1.0,0.2,0.0}
 \newcommand{\scott}[1]{{\color{darkgreen} #1}}
 \newcommand{\peikai}[1]{{\color{blue} #1}}
 \newcommand{\prvs}[1]{{\color{magenta} #1}}
 \newcommand{\AL}[1]{{\color{magenta} AL: #1}}
 \newcommand{\MR}[1]{{\color{blue} MR: #1}}
 \newcommand{\nl}{\\ \indent}
+\newcommand{\RC}[1]{{\color{darkorange} #1}}
 \begin{document}
 \title{Large Scale Structure Reconstruction with Short-Wavelength Modes}
 \author{\large Peikai Li}
@@ -86,19 +88,31 @@
 
 \date{\today}
 \begin{abstract}
-\noindent Large scale density modes cannot be measured directly through surveys but we can study them by measuring perturbations on small scales. Cosmological perturbation theory predicts that second-order density inhomogeneities are a convolution of a short- and a long-wavelength mode. This arises physically because small structure structure varies depending on the large scale environment in which it resides. This will induce small scale clustering in real space and an off-diagonal term in two-point statistics in Fourier space. Therefore we can build a quadratic estimator for the large scale field. We demonstrate that this quadratic estimator works pretty well with our N-body simulation test.
+  \noindent Large scale density modes cannot be measured directly through surveys but we can study them by measuring perturbations on small scales.
+\RC{ Should really say instead something about  the fact that large scale modes are difficult to measure
+    because they are sensitive to systematic observational  errors in
+    galaxy surveys - not that they can't be measured}
+  Cosmological perturbation theory predicts that second-order density inhomogeneities are a convolution of a short- and a long-wavelength mode. This arises physically because the growth of small scale structures varies depending on the large scale environment in which they reside. This induces small scale clustering in real space and an off-diagonal term in the two-point statistics in Fourier space. We can therefore build a quadratic estimator for the large scale field. We demonstrate that this quadratic estimator works well with an N-body simulation test \RC{what do we find? scales? + final
+    speculative sentence
+    about potential of method to do cosmology}.
 
 \end{abstract}
 \maketitle
 \section{Introduction}
-Measuring the distribution of structures on large scales has been one of the main goals of recent surveys despite it is hard to accomplish directly. To tackle this problem, relations between long- and short-wavelength modes have been frequently discussed recent years \cite{Baldauf:2011fer}\cite{Barreira:2017res}. Method of using small scale position-dependent power spectrum to compute squeezed-limit bispectrum also indicates that we can use small scale perturbation to infer large scale information to some extent \cite{Chiang:2014pos}\cite{Chiang:2015poss}. In order to fully achieve this goal, we develop in this work a generalized approach of building a quadratic estimator to measure long-wavelength modes indirectly. \\
-Starting from second-order standard perturbation theory (SPT) \cite{Goroff:1986sts}\cite{Makino:1992fs}\cite{Jain:1994sop}, we can identify second-order perturbation of a short-wavelength mode as a convolution of a short- and a long-wavelength mode. This can be further related to cosmic microwave background (CMB) lensing case \cite{Hu:2002mr}, where CMB temperature field has a second-order correction due to gravitational field along line of sight. Similarly in our case the short-wavelength mode's nonlinear terms are related to the large scale environment it belongs to.
+Measuring the distribution of structures on large scales has been one of the main goals of recent surveys despite it is hard to accomplish directly.
+\RC{Should include brief examples of why it is very interesting - for example
+  to constrain fNL, large scale anomalies, detect matter radiation-equality turnover - make it clear that a measurement would be exciting}
+To tackle this problem, relations between long- and short-wavelength modes have been frequently discussed in recent years \cite{Baldauf:2011fer}\cite{Barreira:2017res}. The method of using the small scale position-dependent power spectrum to compute the squeezed-limit bispectrum also indicates that we can use small scale perturbation to infer large scale information to some extent \cite{Chiang:2014pos}\cite{Chiang:2015poss}. In order to fully achieve this goal, we develop in this work a generalized approach of building a quadratic estimator to measure long-wavelength modes indirectly. \\
+Starting from second-order standard perturbation theory (SPT) \cite{Goroff:1986sts}\cite{Makino:1992fs}\cite{Jain:1994sop}, we can identify the second-order perturbation of a short-wavelength mode as a convolution of a short- and a long-wavelength mode. This can be further related to the cosmic microwave background (CMB) lensing case \cite{Hu:2002mr}, where the CMB temperature field has a second-order correction due to the gravitational field along line of sight. Similarly in our case the short-wavelength mode's nonlinear terms are related its large scale environment.
 \\
-During CMB lensing quadratic estimator's construction, small scale two-point correlations of CMB temperature modes have off-diagonal terms due to large scale perturbations caused by gravitational lensing. The same statistical feature shows up in our case as well -- off-diagonal terms of small scale correlations are no-longer zero due to large scale modes. Thus we can create a quadratic estimator for long-wavelength modes using the exact same formalism. \\
-We begin with a brief review of SPT up to second-order in section \ref{sec1}. Then we build the quadratic estimator and compute the detectability of the estimator in section \ref{sec2}. In section \ref{sec3} we present a concise study of the estimator with data from N-body simulation. Finally we conclude this work and discuss future work related to this in section \ref{sec4}. We use flat $\Lambda$CDM model with Planck Collaboration XVI (2014) \cite{Planck:2014cos} cosmological parameters in this work (same as parameters of the N-body simulation).
+The construction of a CMB lensing quadratic estimator makes use of the fact that small scale two-point correlations of CMB temperature modes have off-diagonal terms due to large scale perturbations caused by gravitational lensing. The same statistical feature shows up in our case as well -- the off-diagonal terms of the small scale correlations are no-longer zero, due to the effect of large scale modes. Thus we can create a quadratic estimator for long-wavelength modes using exactly the same formalism. \\
+We begin with a brief review of SPT up to second-order in section \ref{sec1}. We then build the quadratic estimator and compute the detectability of the estimator in section \ref{sec2}. In section \ref{sec3} we present a concise study of the estimator with data from N-body simulation. Finally we conclude this work and discuss future work related to this in section \ref{sec4}. We use flat $\Lambda$CDM model with Planck Collaboration XVI (2014) \cite{Planck:2014cos} cosmological parameters in this work (same as parameters of the N-body simulation).
 
 \section{Standard Perturbation Theory}\label{sec1}
-In this section we review the SPT approach which describes small scale nonlinearity. Then we compute the off-diagonal term of two short-wavelength modes in the squeezed limit. This non-zero off-diagonal term proportional to a long-wavelength mode will be the key factor of constructing the quadratic estimator. \\
+In this section we review the SPT approach which describes small scale nonlinearity.
+\RC{Say something about: see also a textbook, or the Bernardeau review reference - it looks to me that some of your notation is from the latter. Stating this explicitly could
+be helpful for a reader.} 
+We then compute the off-diagonal term of two short-wavelength modes in the squeezed limit. This non-zero off-diagonal term proportional to a long-wavelength mode will be the key factor of constructing the quadratic estimator. \\
 Starting from a perfect pressureless fluid, the nonrelativistic cosmological fluid equations are continuity, Euler and Poisson equations:
 \bea
 \frac{\partial \delta(\vec{x},\tau)}{\partial \tau} &+&\vec{\nabla}\times [(1+\delta(\vec{x},\tau))\vec{v}(\vec{x},\tau)] =0\eql{fluid1} \\
@@ -112,11 +126,11 @@ We can solve these equations in Fourier space with perturbative expansion \cite{
 {\theta}(\vk,\tau)&=&\sum_{n=1}^{\infty}{\theta}^{(n)}(\vk,\tau) \vs
 &=&-\frac{d\,\ln D_1(\tau)}{d\tau}\sum_{n=1}^{\infty}D_1^{n}(\tau)\theta_{n}(\vk) \eql{pert2}
 \eea
-where $D_1$ is the linear growth factor. The first order term ${\delta}^{(1)}$ corresponds to linear evolution. The inear power spectrum is given by this first order term via:
+where $D_1$ is the linear growth factor \RC{define this e.g. $\delta(\tau)=D_{1}\delta(0)$}. The first order term ${\delta}^{(1)}$ corresponds to linear evolution. The linear power spectrum is given by this first order term via:
 \be 
 \langle {\delta^{(1)}}(\vk,\tau){\delta^{(1)}}(\vk',\tau) \rangle =(2\pi)^3 \delta_{\rm D}(\vk+\vk')P_{\rm lin}(k,\tau) \eql{lin}
 \ee 
-Plugging the perturbative series \ec{pert1} and \ec{pert2} into the Fourier transformed fluid equations \ec{fluid1}-\ec{fluid3}, we can solve the second-order density contrast and the result is given by:
+Substituting the perturbative series \ec{pert1} and \ec{pert2} into the Fourier transformed fluid equations \ec{fluid1}-\ec{fluid3}, we can solve for the second-order density contrast:
 \be
 {\delta}^{(2)}(\vk,\tau)=\int \frac{d^{3}\vk_{1}}{(2\pi)^3} F_2(\vk_1,\vk-\vk_1){\delta}^{(1)}(\vk_1,\tau) {\delta}^{(1)}(\vk-\vk_1,\tau) \eql{sorder} 
 \ee
@@ -124,8 +138,8 @@ with
 \be
 F_{2}(\vk_1,\vk_2)=\frac{5}{7}+\frac{2}{7}\frac{(\vk_1\cdot \vk_2)^2}{k_1^2 k_2^2}+\frac{\vk_1\cdot \vk_2}{2k_1k_2}(\frac{k_1}{k_2}+\frac{k_2}{k_1})\eql{f2}
 \ee
-Notice \ec{pert1}, \ec{pert2} and \ec{f2} are completely accurate only in Einstein-de Sitter universe. Nonetheless when we actually do related calculations in $\Lambda$CDM universe, the difference is negligible \cite{Takahashi:2008to} thus we still use the expression from \ec{pert1} and \ec{f2} throughout the whole work.\\
-Compute the two-point correlations of two short-wavelength modes $\vk_s$ and $\vk_s'$, in the squeezed limit $\vk_l=\vk_s+\vk_s'$ up to second-order where $\vk_l$ corresponds to a long-wavelength mode we have ($\tau$ is fixed at today):
+Note that \ec{pert1}, \ec{pert2} and \ec{f2} are completely accurate only in an Einstein-de Sitter universe. Nonetheless for related calculations in a $\Lambda$CDM universe, the difference is found to be negligible \cite{Takahashi:2008to}, and thus we use the expressions from \ec{pert1} and \ec{f2} throughout this work.\\
+We next compute the two-point correlations of two short-wavelength modes $\vk_s$ and $\vk_s'$, in the squeezed limit $\vk_l=\vk_s+\vk_s'$ \RC{why is this squeezed limit - is $\vk_s,\vk_s' \gg \vk_l$?}, up to second-order. Here $\vk_l$ corresponds to a long-wavelength mode, and $\tau$  is at the present day:
 \bea 
 && \langle {\delta}(\vec{k}_s){\delta}(\vec{k}_s') \rangle|_{\vk_s+\vk_s'=\vk_l}
 \vs 
@@ -145,8 +159,29 @@ Substituting \ec{sorder} into the first bracket we get:
 =\langle {\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}) \rangle {\delta^{(1)}}(\vk_3)  \eql{contraction}
 \ee 
 $\vk_1$ and $\vk_2$ corresponds to two arbitrary short modes and $\vk_3$ arbitrary long mode. The above equation is true since in a real life survey, we can only measure this long-wavelength mode very limited times. Thus it won't have any statistical property and we can safely extract the long-wavelength mode out of the bracket.}\\
-We can do this contraction twice in this integral \ec{integral}. One occurs when $|\vk| \ll |\vk_s|,\, |\vk_s'-\vk|$, we can extract ${\delta}^{(1)}(\vk)$ out; the other one occurs when $|\vk_s'-\vk| \ll |\vk|,\,|\vk_s|$.\\
-Use \ec{lin} the integral in \ec{integral} can be evaluated as:
+
+\RC{Maybe this?: The RHS of \ec{integral} includes an integral over the
+  three point
+  correlation function of modes of a Gaussian field. If one of the modes has
+  a  much longer wavelength than the others, then its contribution will be
+  limited to a few examples, and
+  a statistical average will not take place.  In this case, we can
+  move the long
+  wavelength mode outside the  bracket, so that the following is a
+  good approximation:
+\be 
+\langle
+\contraction{}{{\delta}}{{\delta^{(1)}\;\;\;\;}(}{}
+{\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}){\delta^{(1)}}(\vk_3) 
+\rangle
+=\langle {\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}) \rangle {\delta^{(1)}}(\vk_3)  \eql{contraction},
+\ee 
+where $\vk_1$ and $\vk_2$ are two short modes and $\vk_3$ is the long
+mode.
+}
+
+We can use this contraction twice in \ec{integral}. One use occurs when $|\vk| \ll |\vk_s|,\, |\vk_s'-\vk|$, when we can extract ${\delta}^{(1)}(\vk)$; the other is when $|\vk_s'-\vk| \ll |\vk|,\,|\vk_s|$.\\
+Using \ec{lin}, \ec{integral} can be evaluated as:
 \bea 
 &&\int \frac{d^3\vec{k}}{(2\pi)^3} F_2 (\vec{k},\vec{k}_s'-\vec{k})\langle {\delta}^{(1)}(\vec{k}_s){\delta}^{(1)}(\vec{k}_s'-\vec{k}){\delta}^{(1)}(\vec{k}) \rangle \vs
 &=&\int d^3\vk F_2(\vec{k},\vec{k}_s'-\vec{k}) \delta_{\rm D}(\vk_s+\vk_s'-\vk)P_{\rm 
@@ -155,7 +190,8 @@ lin}(k_s){\delta}^{(1)}(\vec{k}) \vs
 lin}(k_s){\delta}^{(1)}(\vk_s'-\vk) \vs
 &=&2F_2(-\vk_s,\vk_s+\vk_s')P_{\rm lin}(k_s){\delta}^{(1)}(\vk_s+\vk_s')
 \eea 
-where we use the fact that $F_2$ is a symmetric function. Finally we have:
+where we take advantage of the fact that $F_2$ is a symmetric function.
+Finally we have:
 \be 
 \langle {\delta}(\vec{k}_s){\delta}(\vec{k}_s') \rangle =f(\vec{k}_s,\vec{k}_s'){\delta}^{(1)}(\vec{k}_l) \eql{2pt}
 \ee 
@@ -164,14 +200,15 @@ with
 f(\vec{k}_s,\vec{k}_s')&=&2F_2(-\vec{k}_s,\vec{k}_s+\vec{k}_s')P_{\rm lin}(k_s)\vs
 &+&2F_2(-\vec{k}_s',\vec{k}_s+\vec{k}_s')P_{\rm lin}(k_s')       
 \eea 
-\ec{2pt} suggests that we can estimate long-wavelength modes using short-wavelength modes. Also notice that second-order SPT gets less accurate higher in the nonlinear regime and will produce a bias of our quadratic estimator, we can see this effect in \ref{sec3}.
+\ec{2pt} suggests that we can estimate long-wavelength modes using short-wavelength modes.
+\RC{Move this sentence to \ref{sec3}: Also notice that second-order SPT gets less accurate higher in the nonlinear regime and will produce a bias of our quadratic estimator, we can see this effect in \ref{sec3}.}
 
 \section{Quadratic Estimator}\label{sec2}
-In this section we construct the quadratic estimator for long-wavelength modes starting from \ec{2pt}. Then we forecast the detectability of the quadratic estimator for future surveys. Similar to CMB lensing's construction, we can write the general form of the estimator by averaging over pairs of the short-wavelength modes:
+In this section we construct the quadratic estimator for long-wavelength modes starting from \ec{2pt}. We then forecast the detectability of the quadratic estimator for future surveys. As with the case of CMB lensing, we can write the general form of the estimator by averaging over pairs of short-wavelength modes:
 \begin{eqnarray}
-\hat{\delta}^{(1)}(\vec{k}_l)=A(\vec{k}_l)\int \frac{d^3 \vec{k}_s}{(2\pi)^3} g(\vec{k}_s,\vec{k}_s'){\delta}(\vec{k}_s){\delta}(\vec{k}_s') \eql{quadest}
+\hat{\delta}^{(1)}(\vec{k}_l)=A(\vec{k}_l)\int \frac{d^3 \vec{k}_s}{(2\pi)^3} g(\vec{k}_s,\vec{k}_s'){\delta}(\vec{k}_s){\delta}(\vec{k}_s') \eql{quadest},
 \end{eqnarray} 
-with $g$ being weighting function, $\vk_s'=\vk_l-\vk_s$ and $A$ is defined by requiring $\langle \hat{\delta}^{(1)}(\vec{k}_l) \rangle={\delta}^{(1)}(\vec{k}_l)$:
+with $g$ being a weighting function, $\vk_s'=\vk_l-\vk_s$ and $A$  defined by requiring that $\langle \hat{\delta}^{(1)}(\vec{k}_l) \rangle={\delta}^{(1)}(\vec{k}_l)$:
 \begin{eqnarray}
 A(\vec{k}_l)=\bigg[\int \frac{d^3 \vec{k}_s}{(2\pi)^3} g(\vec{k}_s,\vec{k}_s')f(\vec{k}_s,\vec{k}_s')  \bigg]^{-1} \eql{a}
 \end{eqnarray}
@@ -188,30 +225,83 @@ where $P_{\rm nl}$ is the nonlinear power spectrum. Minimizing the noise term we
 \begin{eqnarray}
 g(\vec{k}_{s},\vec{k}_{s}')=\frac{f(\vec{k}_{s},\vec{k}_{s}')}{2P_{\rm nl}(k_{s})P_{\rm nl}(k_{s}')}
 \end{eqnarray} 
-Noise term reduces simply to $N(\vk_l)=A(\vk_l)$. We test that the value of $N$ is very insensitive to the choice of the lower limit of the integration \ec{a} since most of the contribution comes from large $k_s$. We will discuss the choice of the upper limit later in section \ref{sec3}.\\
-Assuming the noise is Gaussian, the projected detectability of $P(k_l)$ measurement from the quadratic estimator can be expressed as:
+The noise term reduces simply to $N(\vk_l)=A(\vk_l)$. We find by testing that the value of $N$ is very insensitive to the choice of the lower limit of the integration \ec{a}, since most of the contribution comes from large $k_s$. We  discuss the choice of the upper limit later, in section \ref{sec3}.\\
+Assuming Gaussian noise, the projected detectability of a $P(k_l)$ measurement using the quadratic estimator can be expressed as:
 \be
-\frac{1}{\sigma^{2}(k_l)}=\frac{V k_l^2 \Delta k }{(2\pi)^2}\bigg[\frac{P_{\rm lin}(k_l)}{P_{\rm lin}(k_l)+N(k_l) }\bigg]^2 \eql{error}
+\frac{1}{\sigma^{2}(k_l)}=\frac{V k_l^2 \Delta k }{(2\pi)^2}\bigg[\frac{P_{\rm lin}(k_l)}{P_{\rm lin}(k_l)+N(k_l) }\bigg]^2 \eql{error},
 \ee
-here $V$ is the volume of a survey and we can compute the detectability for a set of narrow $k_l$-bins each separated by width $\Delta k$.
-\Sfig{SN}{Long-wavelength power spectrum and its error from \ec{error} which can be expressed as $P(k_l)\sigma(k_l)$. We assume a toy survey of boxsize $L=6\, \rm Gpc$, thus volume $V=L^3$ and width $\Delta k = 2\pi/L$. Moreover, we set the integration range for $\vk_s$ from $0.02 \, \rm Mpc^{-1}$ to $0.15\,\rm Mpc^{-1}$. We will see in the next section \ref{sec3} that this choice of the upper limit of integration is very reasonable for our current construction at $z=0$.}
+where $V$ is the volume of a survey and we compute the detectability for a set of narrow $k_l$-bins each separated by width $\Delta k$.\RC{ Write a couple of
+  sentences about Figure 1, bearing in mind that you have put information in
+  the caption already. Also remember to change the survey volume to
+match DESI and state this.}
 
-\section{Demonstration with N-Body Simulation}\label{sec3}
-We test the power of the quadratic estimator using snapshot at $z=0$ data of BigMPDL, one of the MultiDark cosmological simulations \cite{Klypin:2014nov}. Boxsize of BigMDPL is $3.7\,\rm Gpc$. We use dark matter particle data to produce matter inhomogeneities. Galaxy bias \cite{Desjacques:2018rev} should be otherwise considered if galaxy or halo catalog is used.\\
-We use nbodykit code to get Fourier density modes \cite{Hand:2018nby} and compare $\delta(\vk_l)$ with $\hat{\delta}(\vk_l)$ for a 3D grid of $\vk_l$ in Fig.~\rf{hist}. $\delta(\vk_l)$ are the long-wavelength modes we get directly from N-body simulation and $\hat{\delta}(\vk_l)$ are the reproduced modes using quadratic estimator \ec{quadest}.\\
-\Sfig{hist}{Histogram of number counts of $|\hat{\delta}(\vk_l)/\delta(\vk_l)|$ in Fourier space with different integration range of $k_s$.\peikai{should be more clear what does it count..} We can see that the right plot is more biased due to inaccuracy of second-order SPT when we go higher into nonlinear scale.}
-Ultimate goal of this approach is to reproduce large scale structure in real space. Compare $\delta$ and $\hat{\delta}$ in real space in Fig.~\rf{real} and we can check the robustness of the quadratic estimator for this simulation.
-\Sfigg{real}{Comparison between $\delta(\vec{x})$ and $\hat{\delta}(\vec{x})$ and their difference. The 3D grid of data points are unfolded into 2D grids, $7$ columns corresponds to $7$ slices we have. The upper limit of $\vk_s$ is chosen to be $0.15 \, \rm Mpc^{-1}$. We can compute the signal-to-noise ratio as: $S/N=\Var(\delta)/\Var(\hat{\delta}-\delta)\approx 3$. \peikai{comment?}}
+\Sfig{SN}{Long-wavelength power spectrum and its error from \ec{error} which can be expressed as $P(k_l)\sigma(k_l)$. We assume a toy survey of boxsize $L=6\, \rm Gpc$, thus volume $V=L^3$ and width $\Delta k = 2\pi/L$. Moreover, we set the integration range for $\vk_s$ from $0.02 \, \rm Mpc^{-1}$ to $0.15\,\rm Mpc^{-1}$. \RC{Put this in the main text: We will see in the next section \ref{sec3} that this choice of the upper limit of integration is very reasonable for our current construction at $z=0$.}}
+
+\section{Demonstration with an N-Body Simulation}\label{sec3}
+We test the power of the quadratic estimator using data from a cosmological
+N-body simulation. We use the $z=0$ snapshot from BigMPDL, one of the MultiDark cosmological simulations \cite{Klypin:2014nov}. The cubical box side length of BigMDPL is $3.7\,\rm Gpc$. We use the dark matter particle data to compute
+the matter density field, leaving the effect of using galaxies or halos to
+trace the field \cite{Desjacques:2018rev} to  future work.\\
+We use the code nbodykit \cite{Hand:2018nby} 
+to measure the Fourier density modes, and \ec{quadest} to estimate the
+long wavelength modes  from the measured short wavelength modes. 
+How well the estimator works can be seen from Fig.~\rf{hist}, where we show
+histograms of the ratio of the estimated mode amplitudes ($\hat{\delta}(\vk_l)$) to their true amplitudes ($\delta(\vk_l)$). The
+two panels show the differences between a short wavelength mode cutoff of $k_s=0.15 \rm Mpc^{1}$
+and  $k_s=0.25 \rm Mpc^{1}$ \RC{Comment on what the figure shows - for example individual mode amplitudes are unbiased when $k_s=
+  0.15 \rm Mpc^{1}$, and predicted to within $\sim x \%$} \RC{moved this
+  here from fig caption:
+We can see that the results for $k_s=0.25 \rm Mpc^{1}$ are
+biased (the mode is $\sim 20
+\%$ too high)
+due to the increasing inaccuracy of second-order SPT as we move into 
+nonlinear scales}
+\Sfig{hist}{Comparison of measured and predicted Fourier mode amplitudes: histograms of number counts of $|\hat{\delta}(\vk_l)/\delta(\vk_l)|$ for two different $k_s$ integration ranges.}
+Another goal of this approach is to reproduce large scale structure in real space. To test this, we compute real space density fields by taking the
+inverse transform
+of both the directly measured long wavelength Fourier modes and
+the long wavelength modes
+predicted using the quadratic estimator. These density fields, $\delta$ and $\hat{\delta}$ respectively are plotted in Fig.~\rf{real}. We can see that...
+\RC{describe how well it works based on what we can see in the figure}
+
+\Sfig{real}{\RC{Sadly this figure can't really be two columns in a PRL - there isn't enough room. I think you should put it back to one column, but moving the color scale to the bottom or top would allow you to fill the column a bit better} Comparison of the true density field in
+  the BigMPDL simulation ($\delta(\vec{x})$ computed using the
+  directly measured large-scale modes, top row) and the density
+  field from the quadratic estimator ($\hat{\delta}(\vec{x})$, middle row).
+  The bottom row shows their difference. Each panel represents a slice through
+  the simulation volume,  $3.7\,\rm Gpc$ wide, and
+  one cell ($0.5\,\rm Gpc$) thick.  The upper limit of $\vk_s$ was $0.15 \, \rm Mpc^{-1}$. \RC{As discussed, remove this reference to
+  S/N: We can compute the signal-to-noise ratio as: $S/N=\Var(\delta)/\Var(\hat{\delta}-\delta)\approx 3$. \peikai{comment?}}}
   
 \section{Conclusion}\label{sec4}
-In this paper, we have proposed a new and powerful method to measure long-wavelength modes without having to actually measure large scale structure directly. The noise term $N=A$ would reduce significantly if we go higher into nonlinear regime while second-order SPT is no longer accurate in this case. Thus if we want to detect even larger scales, we might need to use contributions from higher order perturbations and expand the integration range to reduce noise level. \\
-Another concern is the range of long-wavelength modes we are able to detect. In the N-body simulation, we use $k_l$ from largest possible mode $1.7 \times 10^{-3} \, \rm Mpc^{-1}$ to $8.9\times 10^{-3} \, \rm Mpc^{-1}$. If we try to measure smaller modes, the quadratic estimator approach would be inaccurate since the contraction \ec{contraction} is no longer valid in this case.\\
-Our current formalism of the quadratic estimator for long-wavelength modes in this paper is only valid in a box at a given cosmological time. While in photometric redshift surveys we would deal with light cones instead of boxes. Thus we expect the expression for the quadratic estimator to be generalized for photometric surveys. Moreover, we notice that the upper limit of integration range should also increase if we consider higher redshift, in order to include more nonlinear information. When applied to halos or galaxies, this approach should be modified to include galaxy bias. We leave these to future work.\\ 
+In this paper, we have proposed a new and potentially powerful method to measure long-wavelength modes without having to actually measure large scale structure directly.
+\RC{ State that this is good because we won't be sensitive to
+  observational systematics, sky gradients, dust etc}
+\RC{Give a short list of cool things we can do, with references: measure 3D clustering
+  beyond the matter radiation equality turnover for the first time,
+  look for evidence of general relativistic effects which are strongest
+  on large scales (e.g., https://journals.aps.org/prd/abstract/10.1103/PhysRevD.85.023504 ), look for evidence of large scale anomalies, like in the CMB,
+  constrain non-Gaussianity, 
+  etc }
+
+Extensions of our work suggest themselves and will be
+relevant to attempts to apply it to observational data.
+The noise term $N=A$ would reduce significantly if we go higher into the nonlinear regime while second-order SPT is no longer accurate in this case. Thus, to detect even larger scales, we may need to use contributions from higher order perturbations and expand the integration range to reduce the noise level. \\
+Another issue relates to the range of long-wavelength modes that are detectable. In the N-body simulation,  $k_l$ for modes recovered ranged from
+$1.7 \times 10^{-3} \, \rm Mpc^{-1}$ to $8.9\times 10^{-3} \, \rm Mpc^{-1}$.
+If we try to measure smaller modes, the quadratic estimator approach would
+become inaccurate since the contraction \ec{contraction} is no longer valid in this case.\\
+Our current formalism for the quadratic estimator for long-wavelength modes is only valid in a box at a fixed time. As the length
+scales are so large, a more realistic situation should deal with
+observations on the light cone.
+The expression for the quadratic estimator to be generalized to take this into account. Moreover, we notice that the upper limit of integration range should also increase if we consider higher redshifts, in order to include more nonlinear information. Finally, when applied to datasets consisting of
+halos or galaxies, the approach should be modified to include galaxy bias. We
+also leave this to future work.\\ 
 \\ \\ \\ \\
 
 \acknowledgements
-\noindent We thank Adam Solomon, Duncan Campbell, Fabian Schmidt and Lam Hui for resourceful discussions.  SD, PL and RC were supported by U.S.\ Dept.\ of Energy contract DE-SC0019248.\\
-The BigMDPL simulation has been performed at LRZ Munich within the PRACE project pr86bu. The CosmoSim database (\url{www.cosmosim.org}) providing the file access is a service by the Leibniz-Institute for Astrophysics Potsdam (AIP).
+\noindent We thank Adam Solomon, Duncan Campbell, Fabian Schmidt and Lam Hui for resourceful discussions.  SD, PL and RC were supported by U.S.\ Dept.\ of Energy contract DE-SC0019248. SD and RC also acknowledge support from NSF AST-1909193\\
+The BigMDPL simulation was performed at LRZ Munich within the PRACE project pr86bu. The CosmoSim database (\url{www.cosmosim.org}) providing the file access is a service by the Leibniz-Institute for Astrophysics Potsdam (AIP).
 %\input{main.bbl}
 \bibliography{refs}
 \end{document}
