@@ -15,8 +15,11 @@
 \newcommand{\sfig}[2]{
 \includegraphics[width=#2]{../plots/#1}
         }
+%\newcommand{\sfigg}[2]{
+%\includegraphics[width=0.424\paperwidth]{../plots/#1}
+%        }
 \newcommand{\sfigg}[2]{
-\includegraphics[width=0.424\paperwidth]{../plots/#1}
+\includegraphics[width=#2]{../plots/#1}
         }
 \newcommand{\sfigr}[2]{
 \includegraphics[angle=270,origin=c,width=#2]{#1}
@@ -35,7 +38,7 @@
 }
 \newcommand{\Sfigg}[2]{
    \begin{figure}[thbp]
-    \sfigg{../plots/#1.pdf}{\columnwidth}
+    \sfigg{../plots/#1.pdf}{.8\paperwidth}
     \caption{{\small #2}}
     \label{fig:#1}
    \end{figure}
@@ -236,9 +239,14 @@ We test the power of the quadratic estimator using data from a cosmological N-bo
 We use the code nbodykit \cite{Hand:2018nby} to measure the Fourier density modes, and \ec{quadest} to estimate the long wavelength modes  from the measured short wavelength modes. How well the estimator works can be seen from Fig.~\rf{hist}, where we show histograms of the ratio of the estimated mode amplitudes $\hat{\delta}(\vk_l)$ to their true amplitudes $\delta(\vk_l)$ for different values of $\vk_l$. The two panels show the differences between a short wavelength mode cutoff of $k_s=0.22\, h\, \rm Mpc^{-1}$ and  $k_s=0.37\,h\, \rm Mpc^{-1}$. Notice that second-order SPT becomes less accurate as shorter wavelengths are used and will produce a bias of our quadratic estimator. The figure shows that individual mode amplitudes are  unbiased when $k_{s,\rm max}= 0.22\,h\, \rm Mpc^{-1}$, while for $k_{s,\rm max}=0.37\,h\, \rm Mpc^{-1}$, the results are biased (the center of the ratio is $\sim 20 \%$ too high). %and more incorrect (about $\sim 50 \%$ of the modes have negative real parts of $\delta/\hat{\delta}$) due to the increasing inaccuracy of second-order SPT. } 
 %\RC{Comment on what the figure shows -  for example individual mode amplitudes are unbiased when $k_s= 0.15 \rm Mpc^{1}$, and predicted to within $\sim x \%$} \RC{moved this here from fig caption: We can see that the results for $k_s=0.25 \rm Mpc^{1}$ are biased (the mode is $\sim 20 \%$ too high) due to the increasing inaccuracy of second-order SPT as we move into nonlinear scales}
 \Sfig{hist}{Comparison of measured and predicted Fourier mode amplitudes: histograms of number counts of $|\hat{\delta}(\vk_l)/\delta(\vk_l)|$ for two different $k_s$ integration ranges.}
-\\Another goal of this approach is to reproduce large scale structure in real space. To test this, we compute real space density fields by taking the inverse transform of both the directly measured long wavelength Fourier modes and the long wavelength modes predicted using the quadratic estimator. These density fields, $\delta$ and $\hat{\delta}$ respectively are plotted in Fig.~\rf{real}. We can see that \peikai{our quadratic estimator }
-\RC{describe how well it works based on what we can see in the figure}
-\Sfigg{real}{Comparison of the true density field in the BigMPDL simulation ($\delta(\vec{x})$ computed using the directly measured large-scale modes, top row) and the density field from the quadratic estimator ($\hat{\delta}(\vec{x})$, middle row). The bottom row shows their difference. Each panel represents a slice through the simulation volume,  $2.5 \,h^{-1}\,\rm Gpc$ wide, and one cell ($0.36 \,h^{-1}\,\rm Gpc$) thick.  The upper limit of $\vk_s$ is $0.22 \,h\, \rm Mpc^{-1}$.}
+
+Another way of examining the success of the quadratic estimator is to transform the estimated density field back to real space to form $\hat\delta(\vec x)$ and then compare with the actual large scale density field $\delta(\vec x)$ in the simulation. The 7 panels in the top two rows of Fig.~\rf{real} compare these two fields; each panel is is a slice of the full simulations.
+
+% of this approach is to reproduce large scale structure in real space. 
+%To test this, we compute real space density fields by taking the inverse transform of both the directly measured long wavelength Fourier modes and the long wavelength modes predicted using the quadratic estimator. 
+%These density fields, $\delta$ and $\hat{\delta}$ are plotted in . %We can see that \peikai{our quadratic estimator }
+%\RC{describe how well it works based on what we can see in the figure}
+The bottom panel shows the difference between the estimated and true density fields. It is apparent that the differences are much smaller than the overdensities; equivalently the estimator does an excellent job of extracting the large scale density field.
 
 
 \noindent{\it Conclusion.}\label{sec4}
@@ -250,10 +258,13 @@ Another issue relates to the range of long-wavelength modes that are detectable.
 Our current formalism for the quadratic estimator for long-wavelength modes is only valid in a box at a fixed time. As the length scales are so large, a more realistic situation should deal with observations on the light cone. The expression for the quadratic estimator to be generalized to take this into account. Moreover, we notice that the upper limit of integration range should also increase if we consider higher redshifts, in order to include more nonlinear information. Finally, when applied to datasets consisting of halos or galaxies, the approach should be modified to include galaxy bias. We also leave this to future work.\\ 
 
 %\acknowledgements
+\onecolumngrid
+\Sfigg{real}{Comparison of the true density field in the BigMPDL simulation ($\delta(\vec{x})$ computed using the directly measured large-scale modes, top row) and the density field from the quadratic estimator ($\hat{\delta}(\vec{x})$, middle row). The bottom row shows their difference. Each panel represents a slice through the simulation volume,  $2.5 \,h^{-1}\,\rm Gpc$ wide, and one cell ($0.36 \,h^{-1}\,\rm Gpc$) thick.  The upper limit of $\vk_s$ is $0.22 \,h\, \rm Mpc^{-1}$.}
+\twocolumngrid
+%\input{main.bbl}
+
 \noindent We thank Adam Solomon, Duncan Campbell, Fabian Schmidt and Lam Hui for resourceful discussions.  This work is supported by U.S.\ Dept.\ of Energy contract DE-SC0019248 and NSF AST-1909193.
 The BigMDPL simulation was performed at LRZ Munich within the PRACE project pr86bu. The CosmoSim database (\url{www.cosmosim.org}) providing the file access is a service by the Leibniz-Institute for Astrophysics Potsdam (AIP).
-
-%\input{main.bbl}
 
 \bibliography{refs}
 \end{document}
