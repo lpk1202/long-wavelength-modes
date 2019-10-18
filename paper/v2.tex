@@ -118,49 +118,65 @@ We can solve these equations perturbatively in Fourier space~\cite{Bernardeau:20
 {\theta}(\vk,\tau)&=&\sum_{n=1}^{\infty}{\theta}^{(n)}(\vk,\tau) \vs
 &=&-\frac{d\,\ln D_1(\tau)}{d\tau}\sum_{n=1}^{\infty}D_1^{n}(\tau)\theta_{n}(\vk) \eql{pert2}
 \eea
-where $D_1$ is the linear growth factor \RC{define this e.g. $\delta(\tau)=D_{1}\delta(0)$} \peikai{defined by $\delta^{(1)}(\vk,\tau)=D_{1}(\tau)\delta_{0}(\vk)$ with $\delta_0$ being the initial density field. Is it necessary? This equation is already indicated in Eq(4).}. The first order term ${\delta}^{(1)}$ corresponds to linear evolution. The linear power spectrum is given by this first order term via:
+where $D_1$ is the linear growth factor. %\RC{define this e.g. $\delta(\tau)=D_{1}\delta(0)$} \peikai{defined by $\delta^{(1)}(\vk,\tau)=D_{1}(\tau)\delta_{0}(\vk)$ with $\delta_0$ being the initial density field. Is it necessary? This equation is already indicated in Eq(4).}. 
+The first order term ${\delta}^{(1)}$ corresponds to linear evolution. The linear power spectrum is given by this first order term via:
 \be 
 \langle {\delta^{(1)}}(\vk,\tau){\delta^{(1)}}(\vk',\tau) \rangle =(2\pi)^3 \delta_{\rm D}(\vk+\vk')P_{\rm lin}(k,\tau) \eql{lin}
 \ee 
-Substituting the perturbative series \ec{pert1} and \ec{pert2} into the Fourier transformed fluid equations \ec{fluid1}-\ec{fluid3}, we can solve for the second-order density contrast:
+Substituting the perturbative series \ec{pert1} and \ec{pert2} into the Fourier transformed fluid equations \ec{fluid1}-\ec{fluid3} leads to an expression for the second-order density contrast:
 \be
 {\delta}^{(2)}(\vk,\tau)=\int \frac{d^{3}\vk_{1}}{(2\pi)^3} F_2(\vk_1,\vk-\vk_1){\delta}^{(1)}(\vk_1,\tau) {\delta}^{(1)}(\vk-\vk_1,\tau) \eql{sorder} 
 \ee
 with 
 \be
-F_{2}(\vk_1,\vk_2)=\frac{5}{7}+\frac{2}{7}\frac{(\vk_1\cdot \vk_2)^2}{k_1^2 k_2^2}+\frac{\vk_1\cdot \vk_2}{2k_1k_2}(\frac{k_1}{k_2}+\frac{k_2}{k_1})\eql{f2}
+F_{2}(\vk_1,\vk_2)=\frac{5}{7}+\frac{2}{7}\frac{(\vk_1\cdot \vk_2)^2}{k_1^2 k_2^2}+\frac{\vk_1\cdot \vk_2}{2k_1k_2}(\frac{k_1}{k_2}+\frac{k_2}{k_1}).\eql{f2}
 \ee
 Note that \ec{pert1}, \ec{pert2} and \ec{f2} are completely accurate only in an Einstein-de Sitter universe. Nonetheless for related calculations in a $\Lambda$CDM universe, the difference is found to be negligible \cite{Takahashi:2008to}, and thus we use the expressions from \ec{pert1} and \ec{f2} throughout this work.\\
-We next compute the two-point correlations of two short-wavelength modes $\vk_s$ and $\vk_s'$, in the squeezed limit $\vk_l=\vk_s+\vk_s'$ \RC{why is this squeezed limit - is $\vk_s,\vk_s' \gg \vk_l$?}\peikai{with $\vk_s,\vk_s' \gg \vk_l$} up to second-order. Here $\vk_l$ corresponds to a long-wavelength mode, and $\tau$  is at the present day:
+
+Using this expression for $\delta^{(2)}$, we can calculate the two-point correlation of two short-wavelength modes $\vk_s$ and $\vk_s'$, in the squeezed limit $\vk_l=\vk_s+\vk_s'$ with $\vk_s,\vk_s' \gg \vk_l$. Here $\vk_l$ corresponds to a long-wavelength mode, and we suppress the time dependence. To second order,
 \bea 
-&& \langle {\delta}(\vec{k}_s){\delta}(\vec{k}_s') \rangle|_{\vk_s+\vk_s'=\vk_l}\vs
-&=&  \langle {\delta}^{(1)}(\vec{k}_s){\delta}^{(2)}(\vec{k}_s') \rangle+\langle {\delta}^{(2)}(\vec{k}_s){\delta}^{(1)}(\vec{k}_s') \rangle
+ \langle {\delta}(\vec{k}_s){\delta}(\vec{k}_s') \rangle|_{\vk_s+\vk_s'=\vk_l}&=&
+  \langle {\delta}^{(1)}(\vec{k}_s){\delta}^{(2)}(\vec{k}_s') \rangle\vs
+  &+&\langle {\delta}^{(2)}(\vec{k}_s){\delta}^{(1)}(\vec{k}_s') \rangle.
 \eea 
 Substituting \ec{sorder} into the first bracket we get:
 \bea 
 \langle {\delta}^{(1)}(\vec{k}_s){\delta}^{(2)}(\vec{k}_s') \rangle =  \int \frac{d^3\vec{k}}{(2\pi)^3} F_2 (\vec{k},\vec{k}_s'-\vec{k})\vs
 \times \langle {\delta}^{(1)}(\vec{k}_s){\delta}^{(1)}(\vec{k}_s'-\vec{k}){\delta}^{(1)}(\vec{k}) \rangle \eql{integral}
 \eea 
-\peikai{Need to rephrase (don't know how): We claim that generally correlation function of three Gaussian fields is non-zero under following consideration: if a three-point correlation function consists of two short-wavelength modes and one long-wavelength mode, we can do the following contraction:
-\be 
+%\peikai{Need to rephrase (don't know how): We claim that generally correlation function of three Gaussian fields is non-zero under following consideration: if a three-point correlation function consists of two short-wavelength modes and one long-wavelength mode, we can do the following contraction:
+%\be 
+%\langle
+%\contraction{}{{\delta}}{{\delta^{(1)}\;\;\;\;}(}{}
+%{\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}){\delta^{(1)}}(\vk_3) 
+%\rangle
+%=\langle {\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}) \rangle {\delta^{(1)}}(\vk_3)  \eql{contraction}
+%\ee 
+%$\vk_1$ and $\vk_2$ corresponds to two arbitrary short modes and $\vk_3$ arbitrary long mode. The above equation is true since in a real life survey, we can only measure this long-wavelength mode very limited times. Thus it won't have any statistical property and we can safely extract the long-wavelength mode out of the bracket.}\\
+When one of the wavenumbers in the 3-point function in \ec{integral} is very small, that mode can be considered as a background mode. The small scale modes evolve in the presence of whatever long wavelength modes happen to be present. Therefore, 
+\bea
 \langle
-\contraction{}{{\delta}}{{\delta^{(1)}\;\;\;\;}(}{}
-{\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}){\delta^{(1)}}(\vk_3) 
+%\contraction{}{{\delta}}{{\delta^{(1)}\;\;\;\;}(}{}
+\delta^{(1)}(\vk_{s}) \delta^{(1)}(\vk_{s}-\vk){\delta^{(1)}}(\vk) 
 \rangle
-=\langle {\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}) \rangle {\delta^{(1)}}(\vk_3)  \eql{contraction}
-\ee 
-$\vk_1$ and $\vk_2$ corresponds to two arbitrary short modes and $\vk_3$ arbitrary long mode. The above equation is true since in a real life survey, we can only measure this long-wavelength mode very limited times. Thus it won't have any statistical property and we can safely extract the long-wavelength mode out of the bracket.}\\
-\RC{Maybe this?: The RHS of \ec{integral} includes an integral over the three point correlation function of modes of a Gaussian field. If one of the modes has a much longer wavelength than the others, then its contribution will be limited to a few examples, and a statistical average will not take place.  In this case, we can move the long wavelength mode outside the bracket, so that the following is a good approximation:
-\be 
-\langle
-\contraction{}{{\delta}}{{\delta^{(1)}\;\;\;\;}(}{}
-{\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}){\delta^{(1)}}(\vk_3) 
-\rangle
-=\langle {\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}) \rangle {\delta^{(1)}}(\vk_3)  \eql{contraction},
-\ee 
-where $\vk_1$ and $\vk_2$ are two short modes and $\vk_3$ is the long mode.}\\
-We can use this contraction twice in \ec{integral}. One use occurs when $|\vk| \ll |\vk_s|,\, |\vk_s'-\vk|$, when we can extract ${\delta}^{(1)}(\vk)$; the other is when $|\vk_s'-\vk| \ll |\vk|,\,|\vk_s|$.\\
-Using \ec{lin}, \ec{integral} can be evaluated as:
+&=&\langle {\delta^{(1)}}(\vk_{s}) {\delta^{(1)}}(\vk_{s}-\vk) \rangle {\delta^{(1)}}(\vk)  \vs
+&+&\langle {\delta^{(1)}}(\vk_{s}) {\delta^{(1)}}(\vk) \rangle {\delta^{(1)}}(\vk_s'-\vk) .
+\vs
+\eql{contraction}
+\eea
+The first term on the right occurs when $\vk$ is small and the second when $\vk_s'-\vk$ is small.
+
+%\RC{Maybe this?: The RHS of \ec{integral} includes an integral over the three point correlation function of modes of a Gaussian field. If one of the modes has a much longer wavelength than the others, then its contribution will be limited to a few examples, and a statistical average will not take place.  In this case, we can move the long wavelength mode outside the bracket, so that the following is a good approximation:
+%\be 
+%\langle
+%\contraction{}{{\delta}}{{\delta^{(1)}\;\;\;\;}(}{}
+%{\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}){\delta^{(1)}}(\vk_3) 
+%\rangle
+%=\langle {\delta^{(1)}}(\vk_{1}) {\delta^{(1)}}(\vk_{2}) \rangle {\delta^{(1)}}(\vk_3)  \eql{contraction},
+%\ee 
+%where $\vk_1$ and $\vk_2$ are two short modes and $\vk_3$ is the long mode.}\\
+%We can use this contraction twice in \ec{integral}. One use occurs when $|\vk| \ll |\vk_s|,\, |\vk_s'-\vk|$, when we can extract ${\delta}^{(1)}(\vk)$; the other is when $|\vk_s'-\vk| \ll |\vk|,\,|\vk_s|$.\\
+Using \ec{lin}, \ec{integral} then becomes:
 \bea 
 &&\int \frac{d^3\vec{k}}{(2\pi)^3} F_2 (\vec{k},\vec{k}_s'-\vec{k})\langle {\delta}^{(1)}(\vec{k}_s){\delta}^{(1)}(\vec{k}_s'-\vec{k}){\delta}^{(1)}(\vec{k}) \rangle \vs
 &=&\int d^3\vk F_2(\vec{k},\vec{k}_s'-\vec{k}) \delta_{\rm D}(\vk_s+\vk_s'-\vk)P_{\rm lin}(k_s){\delta}^{(1)}(\vec{k}) \vs
@@ -179,7 +195,7 @@ f(\vec{k}_s,\vec{k}_s')&=&2F_2(-\vec{k}_s,\vec{k}_s+\vec{k}_s')P_{\rm lin}(k_s)\
 \ec{2pt} suggests that we can estimate long-wavelength modes using short-wavelength modes.
 
 \noindent{\it Quadratic Estimator.}\label{sec2}
-In this section we construct the quadratic estimator for long-wavelength modes starting from \ec{2pt}. We then forecast the detectability of the quadratic estimator for future surveys. As with the case of CMB lensing, we can write the general form of the estimator by averaging over pairs of short-wavelength modes:
+We can now construct the quadratic estimator for long-wavelength modes starting from \ec{2pt} and summing over as many pairs as possible with weights that maximize the signal to noise. As with the case of CMB lensing, we can write the general form of the estimator by averaging over pairs of short-wavelength modes:
 \begin{eqnarray}
 \hat{\delta}^{(1)}(\vec{k}_l)=A(\vec{k}_l)\int \frac{d^3 \vec{k}_s}{(2\pi)^3} g(\vec{k}_s,\vec{k}_s'){\delta}(\vec{k}_s){\delta}(\vec{k}_s') \eql{quadest},
 \end{eqnarray} 
@@ -200,19 +216,25 @@ where $P_{\rm nl}$ is the nonlinear power spectrum. Minimizing the noise term we
 \begin{eqnarray}
 g(\vec{k}_{s},\vec{k}_{s}')=\frac{f(\vec{k}_{s},\vec{k}_{s}')}{2P_{\rm nl}(k_{s})P_{\rm nl}(k_{s}')}
 \end{eqnarray} 
-The noise term reduces simply to $N(\vk_l)=A(\vk_l)$. We find by testing that the value of $N$ is very insensitive to the choice of the lower limit of the integration \ec{a}, since most of the contribution comes from large $k_s$. We discuss the choice of the upper limit later, in section \ref{sec3}.\\
+The noise term reduces simply to $N(\vk_l)=A(\vk_l)$. We find by testing that the value of $N$ is very insensitive to the choice of the lower limit of the integration \ec{a}, since most of the contribution comes from large $k_s$. %We discuss the choice of the upper limit later, in section \ref{sec3}.\\
+
 Assuming Gaussian noise, the projected detectability of a $P(k_l)$ measurement using the quadratic estimator can be expressed as:
 \be
 \frac{1}{\sigma^{2}(k_l)}=\frac{V k_l^2 \Delta k }{(2\pi)^2}\bigg[\frac{P_{\rm lin}(k_l)}{P_{\rm lin}(k_l)+N(k_l) }\bigg]^2 \eql{error},
 \ee
-where $V$ is the volume of a survey and we compute the detectability for a set of narrow $k_l$-bins each separated by width $\Delta k$.\RC{ Write a couple of sentences about Figure 1, bearing in mind that you have put information in the caption already. Also remember to change the survey volume to match DESI and state this.} \peikai{In Fig.~\rf{SN}, we show the projected error of long-wavelength power spectrum using this quadratic estimator with fiducial value $1$. The upper limit of the $\vk_s$ integration in \ec{a} is set to be $0.22\,h\,\rm Mpc^{-1}$. We will see in the next section \ref{sec3} that this choice of the upper limit is very reasonable for our current construction at $z=0$. Also notice that $P_{\rm lin}(k_l)$ dominates over $N(k_l)$ in \ec{error} for this upper limit, thus the projected error bars are only slightly wider than the cosmic variance error bars ($N=0$ case).}\\
-\peikai{plot linear or nonlinear? Change ylabel?}
+where $V$ is the volume of a survey and we compute the detectability for a set of narrow $k_l$-bins each separated by width $\Delta k$.
+%\RC{ Write a couple of sentences about Figure 1, bearing in mind that you have put information in the caption already. Also remember to change the survey volume to match DESI and state this.} 
+In Fig.~\rf{SN}, we show the projected errors on the long-wavelength power spectrum using this quadratic estimator in a large survey. The upper limit of the $\vk_s$ integration in \ec{a} is set to be $0.22\,h\,\rm Mpc^{-1}$. We will see that this choice of the upper limit is reasonable for our current construction at $z=0$. Also notice that $P_{\rm lin}(k_l)$ dominates over $N(k_l)$ in \ec{error} for this upper limit, thus the projected error bars are only slightly wider than the cosmic variance error bars ($N=0$).
+
+%\peikai{plot linear or nonlinear? Change ylabel?}
 \Sfig{SN}{Long-wavelength power spectrum and its error from \ec{error} which can be expressed as $P(k_l)\sigma(k_l)$. We assume a toy survey of boxsize $L=4\, h^{-1}\rm\, Gpc$, thus volume $V=L^3$ and width $\Delta k = 2\pi/L$. Moreover, we set the integration range for $\vk_s$ from $0.03 \,h \,\rm Mpc^{-1}$ to $0.22\,h\,\rm Mpc^{-1}$.}
 
 
 \noindent{\it Demonstration with an N-Body Simulation.}\label{sec3}
-We test the power of the quadratic estimator using data from a cosmological N-body simulation. We use the $z=0$ snapshot from BigMPDL, one of the MultiDark cosmological simulations \cite{Klypin:2014nov}. The cubical box side length of BigMDPL is $2.5\,h^{-1}\,\rm Gpc$. We use the dark matter particle data to compute the matter density field, leaving the effect of using galaxies or halos to trace the field \cite{Desjacques:2018rev} to  future work.\\ 
-We use the code nbodykit \cite{Hand:2018nby} to measure the Fourier density modes, and \ec{quadest} to estimate the long wavelength modes  from the measured short wavelength modes. How well the estimator works can be seen from Fig.~\rf{hist}, where we show histograms of the ratio of the estimated mode amplitudes $\hat{\delta}(\vk_l)$ to their true amplitudes $\delta(\vk_l)$ \peikai{for different values of $\vk_l$}. The two panels show the differences between a short wavelength mode cutoff of $k_s=0.22\, h\, \rm Mpc^{-1}$ and  $k_s=0.37\,h\, \rm Mpc^{-1}$. \peikai{Notice that second-order SPT gets less accurate higher in the nonlinear regime and will produce a bias of our quadratic estimator. As we can see in this plot that individual mode amplitudes are basically unbiased when $k_{s,\rm max}= 0.22\,h\, \rm Mpc^{-1}$. While for $k_{s,\rm max}=0.37\,h\, \rm Mpc^{-1}$, the results are more biased (the center of the ratio $\sim 20 \%$ too high) and more incorrect (about $\sim 50 \%$ of the modes have negative real parts of $\delta/\hat{\delta}$) due to the increasing inaccuracy of second-order SPT. } \RC{Comment on what the figure shows -  for example individual mode amplitudes are unbiased when $k_s= 0.15 \rm Mpc^{1}$, and predicted to within $\sim x \%$} \RC{moved this here from fig caption: We can see that the results for $k_s=0.25 \rm Mpc^{1}$ are biased (the mode is $\sim 20 \%$ too high) due to the increasing inaccuracy of second-order SPT as we move into nonlinear scales}
+We test the power of the quadratic estimator using data from a cosmological N-body simulation. We use the $z=0$ snapshot from BigMPDL, one of the MultiDark cosmological simulations \cite{Klypin:2014nov}. The cubical box side length of BigMDPL is $2.5\,h^{-1}\,\rm Gpc$. We use the dark matter particle data to compute the matter density field, leaving the effect of using galaxies or halos to trace the field \cite{Desjacques:2018rev} to  future work.
+
+We use the code nbodykit \cite{Hand:2018nby} to measure the Fourier density modes, and \ec{quadest} to estimate the long wavelength modes  from the measured short wavelength modes. How well the estimator works can be seen from Fig.~\rf{hist}, where we show histograms of the ratio of the estimated mode amplitudes $\hat{\delta}(\vk_l)$ to their true amplitudes $\delta(\vk_l)$ for different values of $\vk_l$. The two panels show the differences between a short wavelength mode cutoff of $k_s=0.22\, h\, \rm Mpc^{-1}$ and  $k_s=0.37\,h\, \rm Mpc^{-1}$. Notice that second-order SPT becomes less accurate as shorter wavelengths are used and will produce a bias of our quadratic estimator. The figure shows that individual mode amplitudes are  unbiased when $k_{s,\rm max}= 0.22\,h\, \rm Mpc^{-1}$, while for $k_{s,\rm max}=0.37\,h\, \rm Mpc^{-1}$, the results are biased (the center of the ratio is $\sim 20 \%$ too high). %and more incorrect (about $\sim 50 \%$ of the modes have negative real parts of $\delta/\hat{\delta}$) due to the increasing inaccuracy of second-order SPT. } 
+%\RC{Comment on what the figure shows -  for example individual mode amplitudes are unbiased when $k_s= 0.15 \rm Mpc^{1}$, and predicted to within $\sim x \%$} \RC{moved this here from fig caption: We can see that the results for $k_s=0.25 \rm Mpc^{1}$ are biased (the mode is $\sim 20 \%$ too high) due to the increasing inaccuracy of second-order SPT as we move into nonlinear scales}
 \Sfig{hist}{Comparison of measured and predicted Fourier mode amplitudes: histograms of number counts of $|\hat{\delta}(\vk_l)/\delta(\vk_l)|$ for two different $k_s$ integration ranges.}
 \\Another goal of this approach is to reproduce large scale structure in real space. To test this, we compute real space density fields by taking the inverse transform of both the directly measured long wavelength Fourier modes and the long wavelength modes predicted using the quadratic estimator. These density fields, $\delta$ and $\hat{\delta}$ respectively are plotted in Fig.~\rf{real}. We can see that \peikai{our quadratic estimator }
 \RC{describe how well it works based on what we can see in the figure}
