@@ -98,7 +98,7 @@
 \end{abstract}
 \maketitle
 \noindent {\it Introduction.}
-Measuring the distribution of matter on large scales is one of the goals of cosmological surveys. The information contained on large scales may provide information about issues ranging from the turnover in the power spectrum (and therefore the total matter density) to the accelerated universe to anomalies observed in the cosmic microwave background to primordial nongaussianity. Direct measurements are difficult because of observational systematic effects, so indirect approaches have been considered. Small scale structure grows differently in the presence of an large-scale overdensity: it is as if the mean background density is larger than on average. This relation between long- and short-wavelength modes has been discussed in recent years \cite{Baldauf:2011fer}\cite{Li:2014ssc}\cite{Barreira:2017res}. The method of using the small scale position-dependent power spectrum to compute the squeezed-limit bispectrum also indicates that small scale perturbations can be used to infer large scale information \cite{Chiang:2014pos}\cite{Chiang:2015poss}. In order to fully achieve this goal, here we construct a quadratic estimator to measure long-wavelength modes indirectly. 
+Measuring the distribution of matter on large scales is one of the goals of cosmological surveys \cite{LSST:2012ls}\cite{Wfirst:2012jg}. The information contained on large scales may provide information about issues ranging from the turnover in the power spectrum (and therefore the total matter density) to the accelerated universe to anomalies observed in the cosmic microwave background to primordial nongaussianity. Direct measurements are difficult because of observational systematic effects, so indirect approaches have been considered. Small scale structure grows differently in the presence of an large-scale overdensity: it is as if the mean background density is larger than on average. This relation between long- and short-wavelength modes has been discussed in recent years \cite{Masui:2010prim}\cite{Baldauf:2011fer}\cite{Jeong:2012foss}\cite{Li:2014ssc}\cite{Zhu:2016tidal}\cite{Barreira:2017res}\cite{Zhu:2018cm}. The method of using the small scale position-dependent power spectrum to compute the squeezed-limit bispectrum also indicates that small scale perturbations can be used to infer large scale information \cite{Chiang:2014pos}\cite{Chiang:2015poss}. In order to fully achieve this goal, here we construct a quadratic estimator to measure long-wavelength modes indirectly. 
 
 Standard perturbation theory (SPT) \cite{Goroff:1986sts}\cite{Makino:1992fs}\cite{Jain:1994sop} identifies the second-order perturbation of a short-wavelength mode as a convolution of a short- and a long-wavelength mode. Abstractly, this is similar to
 cosmic microwave background (CMB) lensing~\cite{Hu:2001dt}\cite{Hu:2002mr}, where the CMB temperature field has a second-order correction due to the gravitational field along line of sight. Similarly in our case the short-wavelength mode's nonlinear terms are related to its large scale environment.
@@ -110,11 +110,11 @@ We use a flat $\Lambda$CDM model with Planck Collaboration XVI (2014)~\cite{Plan
 \noindent {\it Standard Perturbation Theory.}\label{sec1}
 Starting from a perfect pressureless fluid, the nonrelativistic cosmological fluid equations are the continuity, Euler and Poisson equations:
 \bea
-\frac{\partial \delta(\vec{x},\tau)}{\partial \tau} &+&\vec{\nabla}\times [(1+\delta(\vec{x},\tau))\vec{v}(\vec{x},\tau)] =0\eql{fluid1} \\
-(\frac{\partial}{\partial \tau} +\vec{v}(\vec{x},\tau)&\times&\vec{\nabla})\vec{v}(\vec{x},\tau)=-\frac{da}{d\tau}\frac{\vec{v}(\vec{x},\tau)}{a}-\vec{\nabla}\Phi \eql{eulereq}\\
+\frac{\partial \delta(\vec{x},\tau)}{\partial \tau} &+&\vec{\nabla}\cdot [(1+\delta(\vec{x},\tau))\vec{v}(\vec{x},\tau)] =0\eql{fluid1} \\
+\bigg[\frac{\partial}{\partial \tau} +\vec{v}(\vec{x},\tau)\cdot&\vec{\nabla}& \bigg]\vec{v}(\vec{x},\tau)=-\frac{da}{d\tau}\frac{\vec{v}(\vec{x},\tau)}{a}-\vec{\nabla}\Phi \eql{eulereq}\\
 &&\nabla^2 \Phi = 4\pi G a^2 \bar{\rho}_{\rm m} \delta(\vec{x},\tau) .\eql{fluid3}
 \eea
-These equations fully determine the time evolution of the local density contrast $\delta$ and the peculiar velocity field $\vec{v}=d\vec{x}/d\tau$.
+\peikai{Here $a$ is the cosmological scale factor, $\Phi$ is the 3D gravitational potential and $\bar{\rho}_{\rm m}(a)$ is the mean matter density.} These equations fully determine the time evolution of the local density contrast $\delta$ and the peculiar velocity field $\vec{v}=d\vec{x}/d\tau$.
 We can solve these equations perturbatively in Fourier space~\cite{Bernardeau:2002rev}:
 \bea
 {\delta}(\vk,\tau) &=&\sum_{n=1}^{\infty} {\delta}^{(n)}(\vk,\tau)=\sum_{n=1}^{\infty}D_1^{n}(\tau)\delta_{n}(\vk)  \eql{pert1}\\
@@ -122,19 +122,19 @@ We can solve these equations perturbatively in Fourier space~\cite{Bernardeau:20
 &=&-\frac{d\,\ln D_1(\tau)}{d\tau}\sum_{n=1}^{\infty}D_1^{n}(\tau)\theta_{n}(\vk) \eql{pert2}
 \eea
 where $D_1$ is the linear growth factor. 
-The first order term ${\delta}^{(1)}$ corresponds to linear evolution. The linear power spectrum is given by this first order term via:
+The first order term ${\delta}^{(1)}$ corresponds to linear evolution. The linear power spectrum is given by this first order term via \peikai{averaging over modes in Fourier space}:
 \be 
 \langle {\delta^{(1)}}(\vk,\tau){\delta^{(1)}}(\vk',\tau) \rangle =(2\pi)^3 \delta_{\rm D}(\vk+\vk')P_{\rm lin}(k,\tau) \eql{lin}
 \ee 
-Substituting the perturbative series \ec{pert1} and \ec{pert2} into the Fourier transformed fluid equations \ec{fluid1}-\ec{fluid3} leads to an expression for the second-order density contrast:
+\peikai{Here $\delta_{\rm D}$ is the Dirac delta function.} Substituting the perturbative series \ec{pert1} and \ec{pert2} into the Fourier transformed fluid equations \ec{fluid1}-\ec{fluid3} leads to an expression for the second-order density contrast:
 \be
 {\delta}^{(2)}(\vk,\tau)=\int \frac{d^{3}\vk_{1}}{(2\pi)^3} F_2(\vk_1,\vk-\vk_1){\delta}^{(1)}(\vk_1,\tau) {\delta}^{(1)}(\vk-\vk_1,\tau) \eql{sorder} 
 \ee
 with 
 \be
-F_{2}(\vk_1,\vk_2)=\frac{5}{7}+\frac{2}{7}\frac{(\vk_1\cdot \vk_2)^2}{k_1^2 k_2^2}+\frac{\vk_1\cdot \vk_2}{2k_1k_2}(\frac{k_1}{k_2}+\frac{k_2}{k_1}).\eql{f2}
+F_{2}(\vk_1,\vk_2)=\frac{5}{7}+\frac{2}{7}\frac{(\vk_1\cdot \vk_2)^2}{k_1^2 k_2^2}+\frac{\vk_1\cdot \vk_2}{2k_1k_2}\bigg[\frac{k_1}{k_2}+\frac{k_2}{k_1}\bigg].\eql{f2}
 \ee
-Note that \ec{pert1}, \ec{pert2} and \ec{f2} are completely accurate only in an Einstein-de Sitter universe. Nonetheless for related calculations in a $\Lambda$CDM universe, the difference is found to be negligible \cite{Takahashi:2008to}, and thus we use the expressions from \ec{pert1} and \ec{f2} throughout this work.
+Note that \ec{pert1}, \ec{pert2} and \ec{f2} are completely accurate only in an Einstein-de Sitter universe \peikai{and also assuming the case of a pressureless perfect fluid}. Nonetheless for related calculations in a $\Lambda$CDM universe, the difference is found to be negligible \cite{Takahashi:2008to}, and thus we use the expressions from \ec{pert1} and \ec{f2} throughout this work.
 Using this expression for $\delta^{(2)}$, we can calculate the two-point correlation of two short-wavelength modes $\vk_s$ and $\vk_s'$, in the squeezed limit $\vk_l=\vk_s+\vk_s'$ with $\vk_s,\vk_s' \gg \vk_l$. Here $\vk_l$ corresponds to a long-wavelength mode, and we suppress the time dependence. To second order,
 \bea 
  \langle {\delta}(\vec{k}_s){\delta}(\vec{k}_s') \rangle|_{\vk_s+\vk_s'=\vk_l}&=&
@@ -146,12 +146,12 @@ Substituting \ec{sorder} into the first bracket we get:
 \langle {\delta}^{(1)}(\vec{k}_s){\delta}^{(2)}(\vec{k}_s') \rangle =  \int \frac{d^3\vec{k}}{(2\pi)^3} F_2 (\vec{k},\vec{k}_s'-\vec{k})\vs
 \times \langle {\delta}^{(1)}(\vec{k}_s){\delta}^{(1)}(\vec{k}_s'-\vec{k}){\delta}^{(1)}(\vec{k}) \rangle \eql{integral}
 \eea 
-When one of the wavenumbers in the 3-point function in \ec{integral} is very small, that mode can be considered as a background mode. The small scale modes evolve in the presence of whatever long wavelength modes happen to be present. Therefore, 
+When one of the wavenumbers in the 3-point function in \ec{integral} is very small, that mode can be considered as a background mode. The small scale modes evolve in the presence of whatever long wavelength modes happen to be present. Therefore,  \peikai{we can take the long-wavelength mode out of the bracket:}
 \bea
 \langle
-\delta^{(1)}(\vk_{s}) \delta^{(1)}(\vk_{s}-\vk){\delta^{(1)}}(\vk) 
+\delta^{(1)}(\vk_{s}) \delta^{(1)}(\vk_{s}'-\vk){\delta^{(1)}}(\vk) 
 \rangle
-&=&\langle {\delta^{(1)}}(\vk_{s}) {\delta^{(1)}}(\vk_{s}-\vk) \rangle {\delta^{(1)}}(\vk)  \vs
+&=&\langle {\delta^{(1)}}(\vk_{s}) {\delta^{(1)}}(\vk_{s}'-\vk) \rangle {\delta^{(1)}}(\vk)  \vs
 &+&\langle {\delta^{(1)}}(\vk_{s}) {\delta^{(1)}}(\vk) \rangle {\delta^{(1)}}(\vk_s'-\vk) .
 \vs
 \eql{contraction}
@@ -180,7 +180,7 @@ We can now construct the quadratic estimator for long-wavelength modes starting 
 \begin{eqnarray}
 \hat{\delta}^{(1)}(\vec{k}_l)=A(\vec{k}_l)\int \frac{d^3 \vec{k}_s}{(2\pi)^3} g(\vec{k}_s,\vec{k}_s'){\delta}(\vec{k}_s){\delta}(\vec{k}_s') \eql{quadest},
 \end{eqnarray} 
-with $g$ being a weighting function, $\vk_s'=\vk_l-\vk_s$ and $A$  defined by requiring that $\langle \hat{\delta}^{(1)}(\vec{k}_l) \rangle={\delta}^{(1)}(\vec{k}_l)$:
+with $g$ being a weighting function, $\vk_s'=\vk_l-\vk_s$ and $A$ \peikai{is the normalization factor} defined by requiring that $\langle \hat{\delta}^{(1)}(\vec{k}_l) \rangle={\delta}^{(1)}(\vec{k}_l)$:
 \begin{eqnarray}
 A(\vec{k}_l)=\bigg[\int \frac{d^3 \vec{k}_s}{(2\pi)^3} g(\vec{k}_s,\vec{k}_s')f(\vec{k}_s,\vec{k}_s')  \bigg]^{-1} \eql{a}
 \end{eqnarray}
@@ -195,7 +195,9 @@ with
 \end{eqnarray}
 where $P_{\rm nl}$ is the nonlinear power spectrum. Minimizing the noise term we can fix the form of $g$ to be:
 \begin{eqnarray}
-g(\vec{k}_{s},\vec{k}_{s}')=\frac{f(\vec{k}_{s},\vec{k}_{s}')}{2P_{\rm nl}(k_{s})P_{\rm nl}(k_{s}')}
+g(\vec{k}_{s},\vec{k}_{s}')
+&=&\frac{f(\vec{k}_{s},\vec{k}_{s}')}{2P_{\rm nl}(k_{s})P_{\rm nl}(k_{s}')}\vs
+&=&\frac{F_2(-\vec{k}_s,\vec{k}_s+\vec{k}_s')P_{\rm lin}(k_s)+F_2(-\vec{k}_s',\vec{k}_s+\vec{k}_s')P_{\rm lin}(k_s')}{P_{\rm nl}(k_{s})P_{\rm nl}(k_{s}')}\vs 
 \end{eqnarray} 
 The noise term reduces simply to $N(\vk_l)=A(\vk_l)$. We find by testing that the value of $N$ is very insensitive to the choice of the lower limit of the integration \ec{a}, since most of the contribution comes from large $k_s$. 
 
