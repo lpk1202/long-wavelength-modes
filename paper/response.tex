@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand\sd[1]{\emph{\bf [SD: #1]}}
+
+\title{Response}
+\author{Peikai Li, Scott Dodelson and Rupert A. C. Croft}
+\date{}
+\begin{document}
+
+\maketitle
+\noindent We sincerely thank the referees for their helpful comments and suggestions, which have significantly improved the manuscript.\\ \\
+Following are the specific changes we have made:\\ \\
+---------------------------------------------------------------------\\
+Report of Referee A -- LK17288/Li\\
+---------------------------------------------------------------------\\
+\begin{itemize}
+\item Referee's suggestion: \textbf{Although the paper shows solid analysis and demonstration with N-body
+simulation and the method is relatively new, the small-scale
+reconstruction has appeared in Physical Reviews in a couple of times:
+for measuring gravitational waves (Masui \& Pen 2010, Jeong \&
+Kamionkowski 2011, both PRL), for reconstructing the missing
+long-wavelength mode for the 21cm surveys (Zhu, Pen+2015; 2016, both
+PRD). All of the references mentioned above are missing in the paper.} \\ \\
+Response: We cited all these papers.
+\item Referee's suggestion: \textbf{In eq. (1)-(2), the authors use rather unconventional notation
+$\times$ to represent the scalar product of two vectors.}
+\\ \\Response: We fixed this error. 
+\item Referee's suggestion: \textbf{Although the authors mention the 20\% bias on the right panel of Fig
+2, showing summary statistics for the figure might be more helpful for
+readers to understand the result.}
+\\ \\Response: We also stated that the behavior of polar angle difference of the estimated and directly measured modes is worse in the second case. 
+\item \textbf{There is a missing reference (shown as ??) on page 3.}\\ \\
+Response: We fixed this error.\\
+
+\end{itemize} 
+---------------------------------------------------------------------\\
+Report of Referee B -- LK17288/Li\\
+---------------------------------------------------------------------\\
+
+\begin{itemize}
+\item Referee's suggestion: \textbf{First sentence is too long—split}
+\\ \\Response: This is similar to the comment from Referee A; please see our response there.
+\item Referee's suggestion: \textbf{\\Should have citations for upcoming surveys;\\ Overall I think much more connection to the literature on density reconstruction needs to be made. e.g. work by Jens Jasche, work by Uros Seljak, Florent Leclercq, etc. \\}
+\\ \\Response: Cited LSST and WFIRST as upcoming surveys and the papers referee has recommended.
+\item Referee's suggestion: \textbf{\\1. An large-scale -$>$ a large-scale;\\2. Second-order perturbation of -$>$ contribution to; \\3. Along line of sight -$>$ missing the; \\4. Calculate its detectability -$>$ assess; \\ 5. Large parens in equation 2 around lhs; \\ 6. Need to define everything in (1)-(3): missing Phi, rho\_m, a, tau; \\7. define the Dirac delta distribution in the text
+Also define what $<>$ means;\\ 8. Large parens in equation 8 last term;\\ 9. Say in words what you have done in equation 11—take the low-k mode outside the
+expectation value; \\
+10. I think the little f function is necessary, just combine (13) and (14); \\ 11. Below (14), explain more: you mean that the lhs of (13) has only short modes, but the
+rhs shows sensitivity to long modes; \\ 12. Signal-to-noise needs dashes;\\ 13. In equation (19), if you would not have used the f function, you would find that the factor of 2 cancels out. And the weight is more understandable written as
+$[F2*P_{lin}(ks) + F2*P_{lin}(ks’)]/P_{nl}*P_{nl}]$ because it’s basically dividing out nonlinearities
+and then rescaling by a particular estimate of the nonlinearity;\\ 14. Bottom left page 3: Fig ?? Missing number in text;\\ 15. formatting at top of page 3 is not good; 16. “Larger than the matter radiation equality”—missing dash. Clearer would be “than the scale entering the horizon at matter-radiation equality”; \\17. Fig 2 caption is not ideal—please actually state what this Figure shows in the caption; \\18. An exciting next step”—that seems subjective. I think you should just say “is the logical next step”.}
+\\ \\Response: We have improved these expressions according to the suggestions here.
+\item Referee's suggestion: \textbf{Dash in Fourier-transformed}
+\\ \\Response: We don't think it is necessary in our case. First of all, we don't think it will cause much confusion. Secondly, the definition of the quadratic estimator ( Eq(15) ) already had a hat on it. We feel that it will be redundant for it to have both "hat" and "dash".
+\item Referee's suggestion: \textbf{“Completely accurate” is misleading: even in that case, you’ve assumed a perfect fluid,
+whereas in reality we think CDM satisfies the collision less Boltzmann equation.}
+\\ \\Response: We stated that we also assumed the case of a pressureless perfect fluid.
+\item Referee's suggestion: \textbf{I think the little f function is necessary, just combine (13) and (14).}
+\\ \\Response: We think it will be more clear not to combine these two equations.
+\\ \\Response: We stated that we also assumed the case of a pressureless perfect fluid.
+\item Referee's suggestion: \textbf{isn’t A just basically normalizing the weights so that they integrate to unity?
+Why not state that, it’s more physical.}
+\\ \\Response: We stated that A is a normalization prefactor.
+\item Referee's suggestion: \textbf{I suspect halos will make this worse. Basically you don’t account for biasing, but if the
+biasing is not trivial then the optimal estimator is wrong.}
+\\ \\Response: In our second paper, we will show that we can still get a good estimate with halo bias considered.
+\\ \\
+
+\textbf{Questions that I can't answer...}
+\item As one of the applications, the authors mention the primordial
+non-Gaussianity. The referee believes that primordial non-Gaussianity
+deserves special attention here because its presence can potentially
+change the estimator completely (by changing the nature of the
+long-short correlation).
+\item Also, there has been the idea of directly measuring large-scale modes using IM and then delensing—that should be cited.
+\item \textbf{not sure if these two needs to be answered.} Is there a way to use kSZ velocities in concert with this? They offer constrains on large modes too an d wonder if there’s an optimal combination of them with short density modes.\\ \\ We do not expect any of these to be show-stoppers . . .” is just state with no justification. RSD really remove small-scale information from the field. Also not mentioned at all was baryonic effects, which Chisari + 2016 shows can change P(k) at k$\sim$0.4 by 5\%. If small scale info is being used optimally where the optimal weight just comes from the F2 kernel, well, this kernel does not include baryon physics, so these weights are no longer optimal in the presence of baryons. \textbf{We don't use modes up to k $\sim$ 0.4, isn't that right? But I'm not sure about the effect RSD would have.}
+\item Why would confronting large-scale CMB anomalies with LSS help? Perhaps should be clarified. 
+\item I think also adding forecasts of how much this reconstruction could improve relevant cosmological parameters would be good. “Successfully reconstructs” is subjective; quantifying how much additional information you get on X or Y cosmological parameter would be objective, and hence better. 
+
+
+
+
+\end{itemize}
+
+
+\end{document}
