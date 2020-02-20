@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{hyperref}
 \newcommand\sd[1]{\emph{\bf [SD: #1]}}
 
 \title{Response}
@@ -31,6 +32,12 @@ readers to understand the result.}
 \\ \\Response: We also stated that the behavior of polar angle difference of the estimated and directly measured modes is worse in the second case. 
 \item \textbf{There is a missing reference (shown as ??) on page 3.}\\ \\
 Response: We fixed this error.\\
+\item \textbf{As one of the applications, the authors mention the primordial
+non-Gaussianity. The referee believes that primordial non-Gaussianity
+deserves special attention here because its presence can potentially
+change the estimator completely (by changing the nature of the
+long-short correlation)}\\ \\
+Response:  We agree that primordial non-Gaussianity can change the nature of the long-short correlations, and so could be constrained by comparing the indirectly inferred modes with directly measured large-scale modes, on scales where this can be done, (modulo the usual observational effects).\\
 
 \end{itemize} 
 ---------------------------------------------------------------------\\
@@ -64,20 +71,16 @@ Why not state that, it’s more physical.}
 \item Referee's suggestion: \textbf{I suspect halos will make this worse. Basically you don’t account for biasing, but if the
 biasing is not trivial then the optimal estimator is wrong.}
 \\ \\Response: In our second paper, we will show that we can still get a good estimate with halo bias considered.
-\\ \\
-
-\textbf{Questions that I can't answer...}
-\item As one of the applications, the authors mention the primordial
-non-Gaussianity. The referee believes that primordial non-Gaussianity
-deserves special attention here because its presence can potentially
-change the estimator completely (by changing the nature of the
-long-short correlation).
-\item Also, there has been the idea of directly measuring large-scale modes using IM and then delensing—that should be cited.
-\item \textbf{not sure if these two needs to be answered.} Is there a way to use kSZ velocities in concert with this? They offer constrains on large modes too an d wonder if there’s an optimal combination of them with short density modes.\\ \\ We do not expect any of these to be show-stoppers . . .” is just state with no justification. RSD really remove small-scale information from the field. Also not mentioned at all was baryonic effects, which Chisari + 2016 shows can change P(k) at k$\sim$0.4 by 5\%. If small scale info is being used optimally where the optimal weight just comes from the F2 kernel, well, this kernel does not include baryon physics, so these weights are no longer optimal in the presence of baryons. \textbf{We don't use modes up to k $\sim$ 0.4, isn't that right? But I'm not sure about the effect RSD would have.}
-\item Why would confronting large-scale CMB anomalies with LSS help? Perhaps should be clarified. 
-\item I think also adding forecasts of how much this reconstruction could improve relevant cosmological parameters would be good. “Successfully reconstructs” is subjective; quantifying how much additional information you get on X or Y cosmological parameter would be objective, and hence better. 
-
-
+\item Referee's suggestion: \textbf{Also, there has been the idea of directly measuring large-scale modes using IM and then delensing—that should be cited.}
+\\ \\Response: We cited \url{https://arxiv.org/pdf/1908.08128.pdf}.
+\item Referee's suggestion: \textbf{Is there a way to use kSZ velocities in concert with this? They offer constrains on large modes too an d wonder if there’s an optimal combination of them with short density modes.}
+\\ \\Response: We agree that these could be another tracer of large-scale modes and it would be good for us to compare what we get from both methods. We cited a relevant paper \url{https://ui.adsabs.harvard.edu/abs/2009PhRvD..80f2003K/abstract}
+\item Referee's suggestion: \textbf{We do not expect any of these to be show-stoppers ...” is just state with no justification. RSD really remove small-scale information from the field. Also not mentioned at all was baryonic effects, which Chisari + 2016 shows can change P(k) at k$\sim$0.4 by 5\%. If small scale info is being used optimally where the optimal weight just comes from the F2 kernel, well, this kernel does not include baryon physics, so these weights are no longer optimal in the presence of baryons.}
+\\ \\Response: We don't think we need to consider baryonic effects at current stage because we only used $k$ modes up to $0.22 \, h \,\rm Mpc^{-1}$. We will consider RSD and potentially baryonic effects in our next work, when we apply this method to a light cone.
+\item Referee's suggestion: \textbf{Why would confronting large-scale CMB anomalies with LSS help? Perhaps should be clarified.}
+\\ \\Response: We clarified (in the paper) as follows: One physical mechanism that has been proposed as a possible explanation for the deficit in the large-angle CMBtemperature correlations is a suppression of primordial power on ~ Gpc scales. It would be very useful to verify if this new physics is also present in other probes of large-scale structure"  We also cited \url{https://ui.adsabs.harvard.edu/abs/2011JCAP...10..012H/abstract} in support of this.
+\item Referee's suggestion: \textbf{I think also adding forecasts of how much this reconstruction could improve relevant cosmological parameters would be good. “Successfully reconstructs” is subjective; quantifying how much additional information you get on X or Y cosmological parameter would be objective, and hence better.}
+\\ \\Response: We prefer to compute forecasts for cosmological parameters using our future work, which will include more realism, such as light cone effects, galaxy bias and redshift distortions, and it would be premature to do it here. We also included a quantitative comment that the current largest scale published measurement of the three dimensional power spectrum is for scale 0.02 h/Mpc, from \url{https://ui.adsabs.harvard.edu/abs/2018MNRAS.477.1604G/abstract}, and our figure 2 shows that it should be possible to make measurements using our method on scales of ~0.002 h/Mpc, which are ~10 times larger.
 
 
 \end{itemize}
